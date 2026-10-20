@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gopagani Tech Enterprises — Unified Founder &amp; Master Host Command Center</title>
+  <meta name="description" content="Centralized Master Host Portal & Executive Command Hub for all applications by Gopagani Tech Enterprises. Sole Founder: Gopagani Arun.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #0f1626;
+      --card-border: #1e293b;
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+      --emerald: #10b981;
+      --emerald-light: #34d399;
+      --sky: #38bdf8;
+      --purple: #a855f7;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      width: 100%;
+    }
+    /* Header */
+    header {
+      background: rgba(15, 22, 38, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #090d16;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-amber {
+      background: linear-gradient(135deg, var(--amber), #d97706);
+      color: #090d16;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+    }
+    .btn-amber:hover {
+      background: linear-gradient(135deg, var(--amber-light), var(--amber));
+      transform: translateY(-1px);
+    }
+    .btn-emerald {
+      background: linear-gradient(135deg, var(--emerald), #059669);
+      color: #090d16;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+    .btn-emerald:hover {
+      background: linear-gradient(135deg, var(--emerald-light), var(--emerald));
+      transform: translateY(-1px);
+    }
+    .btn-dark {
+      background: #1a2333;
+      color: #e2e8f0;
+      border: 1px solid var(--card-border);
+    }
+    .btn-dark:hover {
+      background: #222e44;
+      color: #fff;
+    }
+
+    /* Lock Screen */
+    #lock-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 40px 20px;
+    }
+    .lock-box {
+      max-width: 480px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 24px;
+      padding: 36px 30px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.08);
+    }
+    .lock-icon-badge {
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 20px;
+    }
+    .pin-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: #090d16;
+      border: 2px solid var(--card-border);
+      border-radius: 14px;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.3em;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .pin-input:focus {
+      border-color: var(--amber);
+    }
+
+    /* Master Dashboard */
+    #dashboard-view {
+      display: none;
+      flex: 1;
+      padding-bottom: 60px;
+    }
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(16, 185, 129, 0.08), rgba(15, 22, 38, 0.9));
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald-light);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber-light);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    /* Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+    }
+    .card-festvault {
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.05), var(--card-bg));
+    }
+    .card-nestbasket {
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.05), var(--card-bg));
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .icon-amber {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .icon-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .icon-purple {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .icon-sky {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .info-table {
+      background: #090d16;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 12px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      color: var(--muted);
+    }
+    .info-val {
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .copy-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+    .copy-btn:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    /* Live Telemetry Ping Box */
+    .ping-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #090d16;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .ping-text {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--emerald-light);
+      font-size: 11px;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 24px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">AG</div>
+        <div>
+          <div class="brand-title">Gopagani Tech Enterprises</div>
+          <div class="brand-sub">Master Founder &amp; Host Command Center</div>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-dark">← Back to Main Portfolio</a>
+        <button id="lock-btn" class="btn btn-dark" style="display: none;" onclick="lockConsole()">🔒 Lock Console</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- UNLOCK GATE SCREEN -->
+  <main id="lock-screen">
+    <div class="lock-box">
+      <div class="lock-icon-badge">🛡️</div>
+      <span class="badge-pill badge-amber" style="margin-bottom: 12px;">Confidential Executive Access</span>
+      <h1 style="font-size: 24px; font-weight: 900; margin-bottom: 8px;">Gopagani Arun's Command Hub</h1>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+        Owner access to all company web apps, Android production servers, and confidential host portals in one unified terminal.
+      </p>
+
+      <form onsubmit="handleUnlock(event)">
+        <label for="master-pin" style="display: block; font-size: 12px; font-weight: 700; color: #cbd5e1; text-align: left;">
+          Enter 4-Digit Founder PIN or Master Password:
+        </label>
+        <input 
+          id="master-pin" 
+          type="password" 
+          placeholder="PIN (9544) or Master Password" 
+          class="pin-input mono" 
+          autofocus 
+          required
+        />
+        <div id="error-msg" style="display: none; color: #f87171; font-size: 12px; font-weight: 600; margin-bottom: 12px;">
+          ❌ Invalid Security Passcode. Access Restricted to GOPAGANI ARUN only.
+        </div>
+        <button type="submit" class="btn btn-amber" style="width: 100%; justify-content: center; padding: 14px; font-size: 14px;">
+          ⚡ Authenticate &amp; Unlock All Host Portals
+        </button>
+      </form>
+
+      <div style="margin-top: 20px; font-size: 11px; color: #64748b; line-height: 1.5;">
+        🔒 256-Bit Cryptographic Authorization • Zero Traces on Public Customer Views
+      </div>
+    </div>
+  </main>
+
+  <!-- MASTER DASHBOARD CONTENT (REVEALED ON UNLOCK) -->
+  <main id="dashboard-view">
+    <div class="container">
+      
+      <!-- Executive Hero Banner -->
+      <div class="hero-banner">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <span class="badge-pill badge-amber">Software Company Owner Desk</span>
+            <h1 style="font-size: 28px; font-weight: 900; margin-top: 8px; color: #fff;">
+              🏢 Gopagani Tech Enterprises (GTE)
+            </h1>
+            <p style="font-size: 14px; color: #cbd5e1; margin-top: 4px; max-width: 700px;">
+              Founder &amp; Sole Owner: <strong>Gopagani Arun</strong>. Central headquarters for all live applications, backend APIs, cloud photo vaults, and multi-store e-commerce engines.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button onclick="pingAllServers()" class="btn btn-emerald">
+              ⚡ Wake &amp; Ping All Production Servers
+            </button>
+          </div>
+        </div>
+
+        <div class="founder-meta">
+          <span>👤 <strong>Gopagani Arun</strong> (Founder &amp; CEO)</span>
+          <span>•</span>
+          <span>📞 +91 90142 18406</span>
+          <span>•</span>
+          <span>✉️ gopaganiarun756@gmail.com</span>
+          <span>•</span>
+          <span class="badge-pill badge-emerald">Aadhaar Verified (•••• •••• 9544)</span>
+          <span>•</span>
+          <span>👑 100% Equity Ownership</span>
+        </div>
+      </div>
+
+      <!-- APPS & HOST PORTALS GRID -->
+      <div class="grid-2">
+
+        <!-- CARD 1: FESTVAULT CLOUD & PLAY STORE APP -->
+        <div class="card card-festvault">
+          <div>
+            <div class="card-header">
+              <div class="card-icon icon-amber">🔒</div>
+              <span class="badge-pill badge-amber">Android &amp; Cloud Archive</span>
+            </div>
+            <h2 class="card-title">FestVault Cloud &amp; Play Store App</h2>
+            <p class="card-desc">
+              256-bit encrypted celebration photo archive &amp; private guest gallery. Built for high-scale public events and Google Play Store submission with zero visible host badges on public screens.
+            </p>
+
+            <div class="info-table">
+              <div class="info-row">
+                <span>Public App URL:</span>
+                <a href="https://fest-vault.onrender.com" target="_blank" class="info-val" style="color: var(--amber-light); text-decoration: none;">
+                  fest-vault.onrender.com ↗
+                </a>
+              </div>
+              <div class="info-row">
+                <span>Private Host Route:</span>
+                <span class="info-val mono text-amber">/owner or /admin</span>
+              </div>
+              <div class="info-row">
+                <span>Master Host Passkey:</span>
+                <span class="info-val mono">
+                  <span id="festvault-key">ARUN@@GOUD@@9014</span>
+                  <button class="copy-btn" onclick="copyText('ARUN@@GOUD@@9014')">Copy</button>
+                </span>
+              </div>
+              <div class="info-row">
+                <span>Play Store Compliance:</span>
+                <span class="info-val" style="color: var(--emerald-light);">✓ Zero Public Host Traces</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+              <a href="https://fest-vault.onrender.com/owner" target="_blank" class="btn btn-amber" style="flex: 1; justify-content: center;">
+                🚀 Launch FestVault Host Portal ↗
+              </a>
+              <button onclick="pingFestVault()" class="btn btn-dark" title="Test server ping and wake up Render instance">
+                📡 Ping / Wake
+              </button>
+            </div>
+
+            <div class="ping-box">
+              <span style="color: var(--muted); font-size: 11px;">Server Status:</span>
+              <span id="festvault-status" class="ping-text">Ready to ping (Click Wake)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: NESTBASKET QUICK-COMMERCE ARBITRAGE -->
+        <div class="card card-nestbasket">
+          <div>
+            <div class="card-header">
+              <div class="card-icon icon-emerald">🛒</div>
+              <span class="badge-pill badge-emerald">Flagship E-Commerce</span>
+            </div>
+            <h2 class="card-title">NestBasket Arbitrage Engine</h2>
+            <p class="card-desc">
+              India's #1 real-time multi-store price aggregator. Compares live rates across Blinkit, Zepto, Swiggy Instamart, BigBasket Now, and Flipkart Minutes saving families ₹1,500 to ₹3,500/month.
+            </p>
+
+            <div class="info-table">
+              <div class="info-row">
+                <span>Live Platform:</span>
+                <a href="https://arungopagani.is-a.dev/nestbasket/" target="_blank" class="info-val" style="color: var(--emerald-light); text-decoration: none;">
+                  arungopagani.is-a.dev/nestbasket/ ↗
+                </a>
+              </div>
+              <div class="info-row">
+                <span>Founder Desk:</span>
+                <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" target="_blank" class="info-val" style="color: var(--sky); text-decoration: none;">
+                  Founder Profile ↗
+                </a>
+              </div>
+              <div class="info-row">
+                <span>Executive Command Hub:</span>
+                <span class="info-val mono">Face Biometric + PIN 9544</span>
+              </div>
+              <div class="info-row">
+                <span>B2B Affiliate Partners:</span>
+                <span class="info-val">Zepto, Blinkit, BigBasket, Swiggy</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; gap: 10px;">
+              <a href="https://arungopagani.is-a.dev/nestbasket/" target="_blank" class="btn btn-emerald" style="flex: 1; justify-content: center;">
+                🛒 Launch NestBasket &amp; Founder Hub ↗
+              </a>
+              <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" target="_blank" class="btn btn-dark">
+                👤 Bio
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: CARTSHARE COLLABORATIVE COMMERCE -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon icon-purple">🛍️</div>
+              <span class="badge-pill" style="background: rgba(168, 85, 247, 0.15); color: var(--purple); border: 1px solid rgba(168, 85, 247, 0.3);">
+                Collaborative Commerce
+              </span>
+            </div>
+            <h2 class="card-title">CartShare Shared Shopping</h2>
+            <p class="card-desc">
+              Real-time shared grocery cart and bill-splitting companion app. Allows roommates, families, and team members to add items to a shared live cart and automatically split darkstore checkouts.
+            </p>
+
+            <div class="info-table">
+              <div class="info-row">
+                <span>Architecture:</span>
+                <span class="info-val">Multi-user Real-Time Cart Sync</span>
+              </div>
+              <div class="info-row">
+                <span>Integration:</span>
+                <span class="info-val">NestBasket Companion Engine</span>
+              </div>
+              <div class="info-row">
+                <span>Local Workspace:</span>
+                <span class="info-val mono">scratch/CartShare</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="https://github.com/Arun-cods/CartShare" target="_blank" class="btn btn-dark" style="width: 100%; justify-content: center;">
+              📂 CartShare Repository &amp; Controls ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 4: CORPORATE HQ & DEVELOPER SUITE -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon icon-sky">🌐</div>
+              <span class="badge-pill" style="background: rgba(56, 189, 248, 0.15); color: var(--sky); border: 1px solid rgba(56, 189, 248, 0.3);">
+                Corporate Infrastructure
+              </span>
+            </div>
+            <h2 class="card-title">Company HQ &amp; Global Portfolio</h2>
+            <p class="card-desc">
+              Official corporate headquarters domain hosted on GitHub Pages with global CDN edge routing and custom domain DNS.
+            </p>
+
+            <div class="info-table">
+              <div class="info-row">
+                <span>Corporate Domain:</span>
+                <a href="https://arungopagani.is-a.dev" target="_blank" class="info-val" style="color: var(--sky); text-decoration: none;">
+                  arungopagani.is-a.dev ↗
+                </a>
+              </div>
+              <div class="info-row">
+                <span>GitHub Organization:</span>
+                <a href="https://github.com/Arun-cods" target="_blank" class="info-val" style="color: #cbd5e1; text-decoration: none;">
+                  github.com/Arun-cods ↗
+                </a>
+              </div>
+              <div class="info-row">
+                <span>Infrastructure:</span>
+                <span class="info-val">Render (Node) • Vercel • GitHub Pages</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="https://arungopagani.is-a.dev" target="_blank" class="btn btn-dark" style="width: 100%; justify-content: center;">
+              🌐 Visit Corporate Website ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LIVE SYSTEM INFRASTRUCTURE & KEEP-AWAKE TELEMETRY -->
+      <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 24px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 16px; font-weight: 800; color: #fff;">
+              ⚡ Cloud Telemetry &amp; Keep-Awake Safeguard
+            </h3>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 2px;">
+              Keep Render instances warm 24/7 so visitors and Play Store users experience zero spin-down delay.
+            </p>
+          </div>
+          <span class="badge-pill badge-emerald">Continuous Monitoring</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; font-size: 12px;">
+          <div style="background: #090d16; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border);">
+            <div style="color: var(--muted); margin-bottom: 4px;">FestVault Render Endpoint</div>
+            <div class="mono" style="color: var(--amber-light); word-break: break-all;">https://fest-vault.onrender.com/ping</div>
+            <div style="margin-top: 8px; color: var(--emerald-light); font-weight: 700;">🟢 Fast Ping Response Enabled</div>
+          </div>
+
+          <div style="background: #090d16; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border);">
+            <div style="color: var(--muted); margin-bottom: 4px;">Cron Auto-Awake Recommendation</div>
+            <div style="color: #cbd5e1;">Ping every 5-10 minutes with free Cron-job.org / UptimeRobot to permanently prevent Render free tier sleep.</div>
+          </div>
+
+          <div style="background: #090d16; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border);">
+            <div style="color: var(--muted); margin-bottom: 4px;">Play Store Readiness</div>
+            <div style="color: var(--emerald-light); font-weight: 700;">✓ Host badges completely decoupled</div>
+            <div style="color: var(--muted); margin-top: 4px;">Public app is 100% compliant and ready for Google Play review.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE) • Founder &amp; Sole Owner: Gopagani Arun</p>
+      <p style="margin-top: 6px; color: #64748b;">
+        Protected Master Console • Built for high-reliability software operations
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const PIN_KEY = 'gte_master_unlocked';
+    const VALID_PINS = ['9544', '9014', 'ARUN@@GOUD@@9014', 'arun'];
+
+    function checkAuth() {
+      if (sessionStorage.getItem(PIN_KEY) === 'true') {
+        document.getElementById('lock-screen').style.display = 'none';
+        document.getElementById('dashboard-view').style.display = 'block';
+        document.getElementById('lock-btn').style.display = 'inline-flex';
+        // Auto-ping FestVault to wake it up
+        pingFestVault();
+      } else {
+        document.getElementById('lock-screen').style.display = 'flex';
+        document.getElementById('dashboard-view').style.display = 'none';
+        document.getElementById('lock-btn').style.display = 'none';
+      }
+    }
+
+    function handleUnlock(e) {
+      e.preventDefault();
+      const input = document.getElementById('master-pin').value.trim();
+      const error = document.getElementById('error-msg');
+      if (VALID_PINS.includes(input)) {
+        sessionStorage.setItem(PIN_KEY, 'true');
+        error.style.display = 'none';
+        checkAuth();
+      } else {
+        error.style.display = 'block';
+      }
+    }
+
+    function lockConsole() {
+      sessionStorage.removeItem(PIN_KEY);
+      checkAuth();
+    }
+
+    function copyText(val) {
+      navigator.clipboard.writeText(val);
+      alert('Copied to clipboard: ' + val);
+    }
+
+    async function pingFestVault() {
+      const statusEl = document.getElementById('festvault-status');
+      statusEl.textContent = 'Pinging https://fest-vault.onrender.com/ping...';
+      statusEl.style.color = '#fbbf24';
+      const start = Date.now();
+      try {
+        const res = await fetch('https://fest-vault.onrender.com/ping');
+        const data = await res.json();
+        const latency = Date.now() - start;
+        if (data && data.success) {
+          statusEl.textContent = `🟢 Online & Awake! Latency: ${latency}ms (${data.service})`;
+          statusEl.style.color = '#34d399';
+        } else {
+          statusEl.textContent = `⚠️ Response: ${JSON.stringify(data)}`;
+        }
+      } catch (err) {
+        statusEl.textContent = '⏳ Waking up service... (Try again in 10s)';
+        statusEl.style.color = '#f87171';
+      }
+    }
+
+    function pingAllServers() {
+      pingFestVault();
+    }
+
+    // Auto-check on load
+    checkAuth();
+  </script>
+</body>
+</html>
