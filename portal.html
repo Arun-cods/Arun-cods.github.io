@@ -407,12 +407,12 @@
 
       <form onsubmit="handleUnlock(event)">
         <label for="master-pin" style="display: block; font-size: 12px; font-weight: 700; color: #cbd5e1; text-align: left;">
-          Enter 4-Digit Founder PIN or Master Password:
+          Enter Master Security Passkey:
         </label>
         <input 
           id="master-pin" 
           type="password" 
-          placeholder="PIN (9544) or Master Password" 
+          placeholder="••••••••••••" 
           class="pin-input mono" 
           autofocus 
           required
@@ -462,7 +462,7 @@
           <span>•</span>
           <span>✉️ gopaganiarun756@gmail.com</span>
           <span>•</span>
-          <span class="badge-pill badge-emerald">Aadhaar Verified (•••• •••• 9544)</span>
+          <span class="badge-pill badge-emerald">Aadhaar KYC Verified</span>
           <span>•</span>
           <span>👑 100% Equity Ownership</span>
         </div>
@@ -497,8 +497,8 @@
               <div class="info-row">
                 <span>Master Host Passkey:</span>
                 <span class="info-val mono">
-                  <span id="festvault-key">ARUN@@GOUD@@9014</span>
-                  <button class="copy-btn" onclick="copyText('ARUN@@GOUD@@9014')">Copy</button>
+                  <span id="festvault-key" style="letter-spacing: 0.15em;">••••••••••••••••</span>
+                  <button class="copy-btn" onclick="copyPasskey()">Copy Passkey</button>
                 </span>
               </div>
               <div class="info-row">
@@ -552,7 +552,7 @@
               </div>
               <div class="info-row">
                 <span>Executive Command Hub:</span>
-                <span class="info-val mono">Face Biometric + PIN 9544</span>
+                <span class="info-val mono">Biometric Face Authentication</span>
               </div>
               <div class="info-row">
                 <span>B2B Affiliate Partners:</span>
@@ -737,9 +737,14 @@
       checkAuth();
     }
 
+    function copyPasskey() {
+      navigator.clipboard.writeText('ARUN@@GOUD@@9014');
+      alert('✓ Confidential Master Passkey copied to clipboard.');
+    }
+
     function copyText(val) {
       navigator.clipboard.writeText(val);
-      alert('Copied to clipboard: ' + val);
+      alert('Copied to clipboard.');
     }
 
     async function pingFestVault() {
