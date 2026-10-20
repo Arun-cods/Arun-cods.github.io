@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gopagani Tech Enterprises (GTE) — Software Engineering &amp; Consumer Cloud Platforms</title>
+  <meta name="description" content="Official corporate website of Gopagani Tech Enterprises (GTE), an Indian software studio architecting high-scale consumer platforms, quick-commerce arbitrage engines, and 256-bit encrypted cloud applications.">
+  <link rel="canonical" href="https://arungopagani.is-a.dev/company.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #0f1626;
+      --card-border: #1e293b;
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+      --emerald: #10b981;
+      --emerald-light: #34d399;
+      --sky: #38bdf8;
+      --purple: #a855f7;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      width: 100%;
+    }
+    header {
+      background: rgba(15, 22, 38, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #090d16;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    }
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--amber-light);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-amber {
+      background: linear-gradient(135deg, var(--amber), #d97706);
+      color: #090d16;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+    }
+    .btn-amber:hover {
+      background: linear-gradient(135deg, var(--amber-light), var(--amber));
+      transform: translateY(-1px);
+    }
+    .btn-dark {
+      background: #1a2333;
+      color: #e2e8f0;
+      border: 1px solid var(--card-border);
+    }
+    .btn-dark:hover {
+      background: #222e44;
+      color: #fff;
+    }
+
+    /* Hero */
+    .company-hero {
+      padding: 50px 0 40px;
+      text-align: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--amber-light);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: #cbd5e1;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    /* Stats Grid */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--amber-light);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    /* Section Styling */
+    .section-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* Products Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .product-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+    }
+    .product-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+    .tag-festvault {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber-light);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .tag-nestbasket {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald-light);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .tag-cartshare {
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--purple);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .product-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .product-copy {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Founder Card */
+    .founder-card {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(16, 185, 129, 0.05), var(--card-bg));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 24px;
+      padding: 36px;
+      margin-bottom: 50px;
+    }
+    .founder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--amber-light);
+      margin-bottom: 14px;
+    }
+
+    /* Corporate Information Table */
+    .company-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+    .company-table tr {
+      border-bottom: 1px solid var(--card-border);
+    }
+    .company-table td {
+      padding: 12px 0;
+    }
+    .td-label {
+      color: var(--muted);
+      width: 35%;
+      font-weight: 600;
+    }
+    .td-val {
+      color: #f1f5f9;
+      font-weight: 700;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">AG</div>
+        <div>
+          <div class="brand-title">Gopagani Tech Enterprises</div>
+          <div class="brand-sub">Software Studio &amp; Consumer Cloud</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Founder</a>
+        <a href="#products">Products</a>
+        <a href="#company-info">Corporate Profile</a>
+        <a href="portal.html" class="btn btn-amber">🛡️ Master Command Portal ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="company-hero">
+      <div class="pill">Parent Software Company</div>
+      <h1 class="hero-title">
+        Engineering the Next Generation of<br>
+        <span>Consumer Web &amp; Hyperlocal Cloud</span>
+      </h1>
+      <p class="hero-desc">
+        Gopagani Tech Enterprises (GTE) is an Indian software and consumer internet enterprise founded by Gopagani Arun. We design, engineer, and deploy high-speed multi-store aggregators, 256-bit encrypted celebration vaults, and collaborative commerce applications.
+      </p>
+
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <a href="#products" class="btn btn-amber">Explore Live Software Products ↓</a>
+        <a href="https://github.com/Arun-cods" target="_blank" class="btn btn-dark">GitHub Enterprise ↗</a>
+        <a href="portal.html" class="btn btn-dark">Owner Master Terminal 🔐</a>
+      </div>
+    </section>
+
+    <!-- Stats Matrix -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-val">4+</div>
+        <div class="stat-label">Production Platforms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">256-Bit</div>
+        <div class="stat-label">Zero-Knowledge Security</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">₹3,500+</div>
+        <div class="stat-label">Monthly Shopper Savings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">100%</div>
+        <div class="stat-label">Independent Founder Equity</div>
+      </div>
+    </div>
+
+    <!-- Software Products Ecosystem -->
+    <section id="products" style="margin-top: 40px;">
+      <h2 class="section-title">🏢 Software Platforms Ecosystem</h2>
+      <p class="section-desc">
+        Our proprietary software platforms serving thousands of daily consumers and event celebrations.
+      </p>
+
+      <div class="product-grid">
+
+        <!-- PRODUCT 1: FestVault -->
+        <div class="product-card">
+          <div>
+            <span class="product-tag tag-festvault">Android &amp; Cloud Photo Archive</span>
+            <h3 class="product-title">FestVault Cloud</h3>
+            <p class="product-copy">
+              A high-security, 256-bit encrypted celebration photo repository and private guest gallery. Features instant mobile OTP logins, individual encrypted downloads, and full Google Play Store compliance.
+            </p>
+            <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
+              <strong>Tech Stack:</strong> React 18, Express 5, Node.js, AES-256, Render Cloud, PWA
+            </div>
+          </div>
+          <div>
+            <a href="https://fest-vault.onrender.com" target="_blank" class="btn btn-amber" style="width: 100%; justify-content: center;">
+              Launch FestVault Cloud 🔒
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2: NestBasket -->
+        <div class="product-card">
+          <div>
+            <span class="product-tag tag-nestbasket">Quick-Commerce Price Arbitrage</span>
+            <h3 class="product-title">NestBasket</h3>
+            <p class="product-copy">
+              India's premier real-time multi-store price comparison and darkstore cart optimization engine. Compares live rates across Blinkit, Zepto, Swiggy Instamart, BigBasket Now, and Flipkart Minutes saving Indian families ₹1,500 to ₹3,500 every month.
+            </p>
+            <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
+              <strong>Tech Stack:</strong> TypeScript, React, Vite, Tailwind CSS, Fast2SMS API, Edge CDN
+            </div>
+          </div>
+          <div>
+            <a href="https://arungopagani.is-a.dev/nestbasket/" target="_blank" class="btn btn-dark" style="width: 100%; justify-content: center; color: var(--emerald-light); border-color: rgba(16, 185, 129, 0.4);">
+              Visit NestBasket 🛒
+            </a>
+          </div>
+        </div>
+
+        <!-- PRODUCT 3: CartShare -->
+        <div class="product-card">
+          <div>
+            <span class="product-tag tag-cartshare">Collaborative Commerce</span>
+            <h3 class="product-title">CartShare</h3>
+            <p class="product-copy">
+              A collaborative shopping and split-checkout platform enabling families, roommates, and office colleagues to build a joint grocery cart and split delivery orders seamlessly.
+            </p>
+            <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
+              <strong>Tech Stack:</strong> Real-time WebSocket Sync, Shared State, Node.js, React
+            </div>
+          </div>
+          <div>
+            <a href="https://github.com/Arun-cods/CartShare" target="_blank" class="btn btn-dark" style="width: 100%; justify-content: center;">
+              View Repository ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Founder & Leadership Card -->
+    <section class="founder-card">
+      <div class="founder-badge">Leadership &amp; Ownership</div>
+      <h2 style="font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 6px;">
+        Gopagani Arun — Founder &amp; Chief Executive Officer
+      </h2>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 20px;">
+        Computer Science &amp; Engineering Engineer • Full-Stack Systems Architect • 100% Sole Founder
+      </p>
+      <p style="font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 24px;">
+        Gopagani Arun is an Indian technology entrepreneur and software engineer based in Hyderabad, Telangana. He leads product architecture, system security, and engineering execution across all platforms at Gopagani Tech Enterprises.
+      </p>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" class="btn btn-amber">
+          View Detailed Founder Profile ↗
+        </a>
+        <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" class="btn btn-dark">
+          Connect on LinkedIn ↗
+        </a>
+        <a href="https://github.com/Arun-cods" target="_blank" class="btn btn-dark">
+          GitHub Profile ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- Official Corporate Information (For Google Play & LinkedIn Verification) -->
+    <section id="company-info" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 32px; margin-bottom: 50px;">
+      <h2 class="section-title">📄 Corporate Profile &amp; Verification Details</h2>
+      <p class="section-desc">
+        Official developer registry information for Google Play Console, LinkedIn Organization, and payment profiles.
+      </p>
+
+      <table class="company-table">
+        <tbody>
+          <tr>
+            <td class="td-label">Legal Enterprise Name</td>
+            <td class="td-val">Gopagani Tech Enterprises (GTE) / Arun Software Labs</td>
+          </tr>
+          <tr>
+            <td class="td-label">Founder &amp; Managing Director</td>
+            <td class="td-val">Gopagani Arun</td>
+          </tr>
+          <tr>
+            <td class="td-label">Official Developer Website</td>
+            <td class="td-val">
+              <a href="https://arungopagani.is-a.dev/company.html" style="color: var(--sky); text-decoration: none;">
+                https://arungopagani.is-a.dev/company.html
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label">Developer Contact Email</td>
+            <td class="td-val">
+              <a href="mailto:gopaganiarun756@gmail.com" style="color: var(--amber-light); text-decoration: none;">
+                gopaganiarun756@gmail.com
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label">Corporate Headquarters</td>
+            <td class="td-val">Hyderabad, Telangana, 500038, India</td>
+          </tr>
+          <tr>
+            <td class="td-label">Primary Industry</td>
+            <td class="td-val">Software Development, Mobile Applications &amp; Cloud Infrastructure</td>
+          </tr>
+          <tr>
+            <td class="td-label">Flagship Application Privacy Policy</td>
+            <td class="td-val">
+              <a href="https://fest-vault.onrender.com/privacy.html" target="_blank" style="color: var(--emerald-light); text-decoration: none;">
+                https://fest-vault.onrender.com/privacy.html ↗
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
+      <p style="margin-top: 6px; font-size: 12px; color: #64748b;">
+        Founder &amp; Sole Owner: Gopagani Arun • Hyderabad, Telangana, India
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
