@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z'/></svg>" />
+    
+    <!-- Mobile Fullscreen & Viewport Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FestVault" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="msapplication-navbutton-color" content="#020617" />
+    
+    <!-- Android PWA Manifest & App Icons -->
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png" />
+
+    <title>FestVault - Private Celebration Photo Gallery</title>
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="K8Np0cpvHHkBhAlQQ7c-hbLyegL6eyJO8V-TaR-O060" />
+
+    <!-- Google AdSense Verification & Auto-Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4808439879883805"
+     crossorigin="anonymous"></script>
+
+    <!-- Google SEO Meta Tags -->
+    <meta name="description" content="FestVault Private Celebration Photo Archive. Securely view, download in original high-resolution, and cherish festive memories with family and friends." />
+    <meta name="keywords" content="FestVault, fest vault, celebration photo gallery, family photo archive, high resolution photo download, festival photos, wedding memories, event photography" />
+    <meta name="author" content="FestVault" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://fest-vault.onrender.com/" />
+
+    <!-- Open Graph (Facebook, WhatsApp, Telegram, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FestVault - Private Celebration Photo Gallery" />
+    <meta property="og:description" content="Cherished Celebration Memories. View and download high-resolution festival and family photos in original quality." />
+    <meta property="og:site_name" content="FestVault" />
+    <meta property="og:image" content="https://fest-vault.onrender.com/icon-512.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FestVault - Celebration Photo Gallery" />
+    <meta name="twitter:description" content="View and download high-resolution celebration photos in original quality." />
+    <meta name="twitter:image" content="https://fest-vault.onrender.com/icon-512.png" />
+
+    <!-- Structured Data for Google Search (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FestVault",
+      "alternateName": ["Fest Vault", "FestVault Celebration Gallery", "FestVault Celebration Archive"],
+      "url": "https://fest-vault.onrender.com/",
+      "description": "Celebration Photo Archive. View and download full resolution festival memories."
+    }
+    </script>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>html,body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background-color:#020617}</style>
+    <script type="module" crossorigin src="./assets/index-DnYhaPyy.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CxOn_gHw.css">
+  </head>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-festive-500 selection:text-slate-950">
+    <div id="root"></div>
+
+
+    <!-- Register PWA Service Worker for Mobile & Play Store Instant OTA Updates -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then((reg) => {
+              // Check for app updates every time the app opens
+              reg.update();
+              reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                if (newWorker) {
+                  newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      console.log('FestVault updated in background. Ready for seamless reload.');
+                    }
+                  });
+                }
+              });
+            })
+            .catch((err) => console.log('Service Worker reg error:', err));
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "FestVault - Celebration Photo Archive",
+  "short_name": "FestVault",
+  "start_url": "./?source=pwa",
+  "display": "standalone",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "any",
+  "description": "256-Bit Encrypted Celebration Photo Archive & Private Guest Gallery",
+  "id": "festvault-pwa",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["photos", "lifestyle", "social"],
+  "screenshots": [
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "FestVault Gallery on Mobile"
+    }
+  ]
+}
