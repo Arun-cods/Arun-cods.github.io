@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android PWA & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v2';
+const CACHE_NAME = 'festvault-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
