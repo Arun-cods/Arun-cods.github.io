@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gopagani.festvault",
+      "sha256_cert_fingerprints": [
+        "AE:B4:D7:0A:11:36:FB:06:A1:B1:A9:FD:82:14:19:96:40:11:88:6E:A5:90:84:FC:D6:2B:08:0F:0C:03:3B:5B"
+      ]
+    }
+  }
+]
