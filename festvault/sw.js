@@ -1,15 +1,20 @@
-// FestVault Service Worker for Android PWA & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v3';
+// FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
+const CACHE_NAME = 'festvault-v4';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png'
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS_TO_CACHE).catch(() => {});
+    })
+  );
 });
 
 self.addEventListener('activate', (event) => {
@@ -24,12 +29,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Pass API requests, uploads, and non-GET directly to network
-  if (
-    event.request.url.includes('/api/') || 
-    event.request.url.includes('/uploads/') ||
-    event.request.method !== 'GET'
-  ) {
+  // Pass non-GET directly to network
+  if (event.request.method !== 'GET') {
     return;
   }
 

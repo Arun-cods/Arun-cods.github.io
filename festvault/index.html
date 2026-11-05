@@ -14,10 +14,10 @@
     <meta name="msapplication-navbutton-color" content="#020617" />
     
     <!-- Android PWA Manifest & App Icons -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png" />
 
     <title>FestVault - Private Celebration Photo Gallery</title>
     
@@ -33,21 +33,21 @@
     <meta name="keywords" content="FestVault, fest vault, celebration photo gallery, family photo archive, high resolution photo download, festival photos, wedding memories, event photography" />
     <meta name="author" content="FestVault" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://fest-vault.onrender.com/" />
+    <link rel="canonical" href="https://arungopagani.is-a.dev/festvault/" />
 
     <!-- Open Graph (Facebook, WhatsApp, Telegram, LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="FestVault - Private Celebration Photo Gallery" />
     <meta property="og:description" content="Cherished Celebration Memories. View and download high-resolution festival and family photos in original quality." />
     <meta property="og:site_name" content="FestVault" />
-    <meta property="og:image" content="https://fest-vault.onrender.com/icon-512.png" />
+    <meta property="og:image" content="https://arungopagani.is-a.dev/festvault/icon-512.png" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FestVault - Celebration Photo Gallery" />
     <meta name="twitter:description" content="View and download high-resolution celebration photos in original quality." />
-    <meta name="twitter:image" content="https://fest-vault.onrender.com/icon-512.png" />
+    <meta name="twitter:image" content="https://arungopagani.is-a.dev/festvault/icon-512.png" />
 
     <!-- Structured Data for Google Search (Schema.org) -->
     <script type="application/ld+json">
@@ -56,7 +56,7 @@
       "@type": "WebSite",
       "name": "FestVault",
       "alternateName": ["Fest Vault", "FestVault Celebration Gallery", "FestVault Celebration Archive"],
-      "url": "https://fest-vault.onrender.com/",
+      "url": "https://arungopagani.is-a.dev/festvault/",
       "description": "Celebration Photo Archive. View and download full resolution festival memories."
     }
     </script>
@@ -68,19 +68,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>html,body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background-color:#020617}</style>
-    <script type="module" crossorigin src="/assets/index-tMFnWDjx.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CUTMhlcX.css">
+    <style>html,body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background-color:#020617}@keyframes fast-shimmer{0%{transform:translate(-100%)}to{transform:translate(100%)}}</style>
+    <script type="module" crossorigin src="./assets/index-V72a4GnJ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-NN_IpcaC.css">
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-festive-500 selection:text-slate-950">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Instant 0.001s Pre-Mount Splash Screen: visible before JavaScript even parses -->
+      <div id="instant-splash" style="position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at 50% 40%,#0f172a 0%,#020617 80%,#000000 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;color:#f8fafc;user-select:none;-webkit-user-select:none;">
+        <div style="position:relative;margin-bottom:24px;display:flex;align-items:center;justify-content:center;">
+          <div style="position:absolute;width:120px;height:120px;background:#f59e0b;filter:blur(45px);opacity:0.25;border-radius:9999px;"></div>
+          <div style="width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#1e293b,#0f172a);border:1.5px solid rgba(245,158,11,0.5);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.5),0 0 20px rgba(245,158,11,0.2);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+        </div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;letter-spacing:0.22em;background:linear-gradient(135deg,#fef08a 0%,#f59e0b 50%,#d97706 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">
+          FESTVAULT
+        </div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;color:#94a3b8;text-transform:uppercase;margin-bottom:28px;">
+          Private Celebration Archive
+        </div>
+        <div style="width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:9999px;overflow:hidden;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent,#f59e0b,#fef08a,transparent);animation:fast-shimmer 1.2s infinite ease-in-out;"></div>
+        </div>
+        <div style="margin-top:20px;font-size:11px;color:#64748b;letter-spacing:0.05em;display:flex;align-items:center;gap:6px;">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:9999px;background:#10b981;"></span>
+          Instant Loading • 256-Bit Encrypted
+        </div>
+      </div>
+    </div>
 
 
     <!-- Register PWA Service Worker for Mobile & Play Store Instant OTA Updates -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('./sw.js')
             .then((reg) => {
               // Check for app updates every time the app opens
               reg.update();

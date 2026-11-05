@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fest-vault.onrender.com/sitemap.xml
+Sitemap: https://arungopagani.is-a.dev/festvault/sitemap.xml
