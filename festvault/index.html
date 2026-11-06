@@ -6,6 +6,9 @@
     
     <!-- Mobile Fullscreen & Viewport Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -69,8 +72,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>html,body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background-color:#020617}@keyframes fast-shimmer{0%{transform:translate(-100%)}to{transform:translate(100%)}}</style>
-    <script type="module" crossorigin src="./assets/index-v3IU-Mts.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BfTTqhUh.css">
+    <script type="module" crossorigin src="./assets/index-BpJZkeM9.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ClDM4wUj.css">
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-festive-500 selection:text-slate-950">
     <div id="root"></div>
@@ -79,21 +82,22 @@
     <!-- Register PWA Service Worker for Mobile & Play Store Instant OTA Updates -->
     <script>
       if ('serviceWorker' in navigator) {
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!refreshing) {
+            refreshing = true;
+            window.location.reload();
+          }
+        });
+
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('./sw.js')
             .then((reg) => {
-              // Check for app updates every time the app opens
+              // Immediately check for updates
               reg.update();
-              reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                if (newWorker) {
-                  newWorker.addEventListener('statechange', () => {
-                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                      console.log('FestVault updated in background. Ready for seamless reload.');
-                    }
-                  });
-                }
-              });
+              if (reg.waiting) {
+                reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+              }
             })
             .catch((err) => console.log('Service Worker reg error:', err));
         });

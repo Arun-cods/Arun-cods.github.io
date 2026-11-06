@@ -1,8 +1,6 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v4';
+const CACHE_NAME = 'festvault-v7-live';
 const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
@@ -21,7 +19,12 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log('Purging old FestVault cache:', key);
+            return caches.delete(key);
+          }
+        })
       );
     })
   );
@@ -34,19 +37,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-first: Always fetch latest version from the live server so updates apply seamlessly.
-  // Falls back to offline cache only when device has no internet connection.
+  // HTML documents & API calls: ALWAYS NETWORK ONLY to ensure instant updates without caching leaks
+  const url = event.request.url;
+  if (event.request.mode === 'navigate' || url.endsWith('.html') || url.includes('/api/')) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' }).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Static assets (images, icons): Cache first, fallback to network
   event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        if (response && response.status === 200) {
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache).catch(() => {});
-          });
+    caches.match(event.request).then((cached) => {
+      return cached || fetch(event.request).then((res) => {
+        if (res && res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(event.request, clone).catch(() => {}));
         }
-        return response;
-      })
-      .catch(() => caches.match(event.request))
+        return res;
+      });
+    })
   );
 });
