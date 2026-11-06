@@ -754,13 +754,13 @@
       const start = Date.now();
       try {
         const res = await fetch('https://fest-vault.onrender.com/ping');
-        const data = await res.json();
         const latency = Date.now() - start;
-        if (data && data.success) {
-          statusEl.textContent = `🟢 Online & Awake! Latency: ${latency}ms (${data.service})`;
+        if (res.ok) {
+          statusEl.textContent = `🟢 Online & Awake! Latency: ${latency}ms`;
           statusEl.style.color = '#34d399';
         } else {
-          statusEl.textContent = `⚠️ Response: ${JSON.stringify(data)}`;
+          statusEl.textContent = `⚠️ Response Status: ${res.status}`;
+          statusEl.style.color = '#fbbf24';
         }
       } catch (err) {
         statusEl.textContent = '⏳ Waking up service... (Try again in 10s)';
