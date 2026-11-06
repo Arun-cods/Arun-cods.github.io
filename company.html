@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gopagani Tech Enterprises (GTE) — Software Engineering &amp; Consumer Cloud Platforms</title>
   <meta name="description" content="Official corporate website of Gopagani Tech Enterprises (GTE), an Indian software studio architecting high-scale consumer platforms, quick-commerce arbitrage engines, and 256-bit encrypted cloud applications.">
+  <meta name="theme-color" content="#090d16">
+  <meta property="og:title" content="Gopagani Tech Enterprises | Software Studio &amp; Consumer Cloud">
+  <meta property="og:description" content="Explore the software platforms and consumer cloud products built by Gopagani Tech Enterprises.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arungopagani.is-a.dev/company.html">
   <link rel="canonical" href="https://arungopagani.is-a.dev/company.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,7 +344,85 @@
       font-size: 13px;
       margin-top: auto;
     }
-  </style>
+
+    @media (max-width: 760px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+      }
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 14px;
+      }
+      .nav-links a {
+        font-size: 12px;
+      }
+      .nav-links .btn {
+        padding: 8px 10px;
+      }
+      .container {
+        padding: 24px 16px;
+      }
+      .company-hero {
+        padding: 30px 0 24px;
+      }
+      .hero-title {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+      .hero-desc {
+        font-size: 15px;
+      }
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .product-card {
+        padding: 22px;
+      }
+      .founder-card {
+        padding: 24px;
+      }
+      .company-table {
+        font-size: 12px;
+      }
+      .company-table td {
+        padding: 10px 8px 10px 0;
+        vertical-align: top;
+      }
+      .td-label {
+        width: 40%;
+      }
+    }
+  
+    /* Subtle CSS 3D identity and product cards */
+    .hero-scene{position:relative;width:196px;height:158px;margin:18px auto 10px;perspective:900px;display:grid;place-items:center}
+    .hero-halo{position:absolute;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.22),rgba(168,85,247,.10) 45%,transparent 72%);filter:blur(4px);transform:translateZ(-20px)}
+    .hero-orbit{position:absolute;width:166px;height:88px;border:1px solid rgba(56,189,248,.48);border-radius:50%;transform:rotateX(68deg) rotateZ(-20deg);box-shadow:0 0 28px rgba(56,189,248,.12)}
+    .hero-cube{position:relative;width:76px;height:76px;transform-style:preserve-3d;animation:gte-cube-turn 22s linear infinite}
+    .hero-face{position:absolute;inset:0;display:grid;place-items:center;border:1px solid rgba(125,211,252,.7);border-radius:14px;color:#e0f2fe;background:linear-gradient(145deg,rgba(56,189,248,.38),rgba(15,22,38,.88) 62%,rgba(168,85,247,.32));box-shadow:inset 0 0 20px rgba(255,255,255,.08),0 8px 25px rgba(2,6,23,.4);font-size:12px;font-weight:900;letter-spacing:.08em}
+    .face-front{transform:translateZ(38px)} .face-back{transform:rotateY(180deg) translateZ(38px)}
+    .face-right{transform:rotateY(90deg) translateZ(38px);font-size:9px} .face-left{transform:rotateY(-90deg) translateZ(38px);font-size:9px}
+    .face-top{transform:rotateX(90deg) translateZ(38px);font-size:9px} .face-bottom{transform:rotateX(-90deg) translateZ(38px);font-size:9px}
+    @keyframes gte-cube-turn{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(342deg) rotateY(360deg)}}
+    .product-grid{perspective:1400px;perspective-origin:center top}
+    .product-card{position:relative;isolation:isolate;transform-style:preserve-3d;transition:transform .35s ease,box-shadow .35s ease,border-color .25s ease}
+    .product-card::before{content:"";position:absolute;z-index:0;inset:14px;border-radius:18px;background:linear-gradient(135deg,rgba(56,189,248,.25),rgba(168,85,247,.14),rgba(245,158,11,.2));filter:blur(22px);opacity:.24;transform:translateZ(-22px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+    .product-card>*{position:relative;z-index:1;transform:translateZ(16px)}
+    .product-card:hover,.product-card:focus-within{border-color:rgba(125,211,252,.58);transform:translateY(-8px) rotateX(4deg) rotateY(-1.5deg);box-shadow:0 26px 60px rgba(2,6,23,.48),0 0 28px rgba(56,189,248,.1)}
+    .product-card:hover::before,.product-card:focus-within::before{opacity:.65;transform:translateZ(-30px) scale(1.03)}
+    .public-profile{background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:32px;margin-bottom:50px}
+    .public-profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .public-profile-grid>div{display:grid;gap:5px;padding:16px;border:1px solid var(--card-border);border-radius:14px;background:rgba(9,13,22,.6)}
+    .profile-label{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .public-profile-grid strong,.public-profile-grid a{color:#e2e8f0;font-size:13px;overflow-wrap:anywhere}
+    .public-profile-grid a{color:var(--sky);text-decoration:none}
+    .footer-founder{margin-top:6px;color:#64748b;font-size:12px}
+    .footer-terminal{display:inline-flex;margin-top:10px;color:var(--amber-light);font-size:12px;font-weight:800;text-decoration:none}
+    @media(max-width:760px){.hero-scene{height:136px;margin:12px auto 8px}.product-card:hover,.product-card:focus-within{transform:translateY(-4px) rotateX(2deg)}}
+    @media(prefers-reduced-motion:reduce){.hero-cube{animation:none;transform:rotateX(-18deg) rotateY(-26deg)}.product-card,.product-card::before{transition:none}.product-card:hover,.product-card:focus-within{transform:none}}
+</style>
 </head>
 <body>
 
@@ -347,7 +430,7 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="brand">
-        <div class="brand-logo">AG</div>
+        <div class="brand-logo" style="font-size: 14px;">GTE</div>
         <div>
           <div class="brand-title">Gopagani Tech Enterprises</div>
           <div class="brand-sub">Software Studio &amp; Consumer Cloud</div>
@@ -358,7 +441,6 @@
         <a href="index.html">Founder</a>
         <a href="#products">Products</a>
         <a href="#company-info">Corporate Profile</a>
-        <a href="portal.html" class="btn btn-amber">🛡️ Master Command Portal ↗</a>
       </nav>
     </div>
   </header>
@@ -375,10 +457,18 @@
         Gopagani Tech Enterprises (GTE) is an Indian software and consumer internet enterprise founded by Gopagani Arun. We design, engineer, and deploy high-speed multi-store aggregators, 256-bit encrypted celebration vaults, and collaborative commerce applications.
       </p>
 
+      <div class="hero-scene" aria-hidden="true">
+        <div class="hero-halo"></div><div class="hero-orbit"></div>
+        <div class="hero-cube">
+          <div class="hero-face face-front">GTE</div><div class="hero-face face-back">WEB</div>
+          <div class="hero-face face-right">CLOUD</div><div class="hero-face face-left">BUILD</div>
+          <div class="hero-face face-top">TECH</div><div class="hero-face face-bottom">GTE</div>
+        </div>
+      </div>
+
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="#products" class="btn btn-amber">Explore Live Software Products ↓</a>
-        <a href="https://github.com/Arun-cods" target="_blank" class="btn btn-dark">GitHub Enterprise ↗</a>
-        <a href="portal.html" class="btn btn-dark">Owner Master Terminal 🔐</a>
+        <a href="https://github.com/Arun-cods" target="_blank" rel="noopener noreferrer" class="btn btn-dark">GitHub Organization ↗</a>
       </div>
     </section>
 
@@ -414,10 +504,10 @@
         <!-- PRODUCT 1: FestVault -->
         <div class="product-card">
           <div>
-            <span class="product-tag tag-festvault">Android &amp; Cloud Photo Archive</span>
+            <span class="product-tag tag-festvault">Installable App &amp; Cloud Photo Archive</span>
             <h3 class="product-title">FestVault Cloud</h3>
             <p class="product-copy">
-              A high-security, 256-bit encrypted celebration photo repository and private guest gallery. Features instant mobile OTP logins, individual encrypted downloads, and full Google Play Store compliance.
+              A private celebration photo archive with a guest gallery, encrypted downloads, and an installable mobile web app.
             </p>
             <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
               <strong>Tech Stack:</strong> React 18, Express 5, Node.js, AES-256, Render Cloud, PWA
@@ -481,12 +571,12 @@
         Computer Science &amp; Engineering Engineer • Full-Stack Systems Architect • 100% Sole Founder
       </p>
       <p style="font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 24px;">
-        Gopagani Arun is an Indian technology entrepreneur and software engineer based in Hyderabad, Telangana. He leads product architecture, system security, and engineering execution across all platforms at Gopagani Tech Enterprises.
+        Gopagani Arun leads product architecture, system security, and engineering execution across Gopagani Tech Enterprises.
       </p>
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" class="btn btn-amber">
-          View Detailed Founder Profile ↗
+        <a href="index.html" class="btn btn-amber">
+          View Founder Portfolio ↗
         </a>
         <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" class="btn btn-dark">
           Connect on LinkedIn ↗
@@ -497,57 +587,16 @@
       </div>
     </section>
 
-    <!-- Official Corporate Information (For Google Play & LinkedIn Verification) -->
-    <section id="company-info" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 32px; margin-bottom: 50px;">
-      <h2 class="section-title">📄 Corporate Profile &amp; Verification Details</h2>
-      <p class="section-desc">
-        Official developer registry information for Google Play Console, LinkedIn Organization, and payment profiles.
-      </p>
-
-      <table class="company-table">
-        <tbody>
-          <tr>
-            <td class="td-label">Legal Enterprise Name</td>
-            <td class="td-val">Gopagani Tech Enterprises (GTE) / Arun Software Labs</td>
-          </tr>
-          <tr>
-            <td class="td-label">Founder &amp; Managing Director</td>
-            <td class="td-val">Gopagani Arun</td>
-          </tr>
-          <tr>
-            <td class="td-label">Official Developer Website</td>
-            <td class="td-val">
-              <a href="https://arungopagani.is-a.dev/company.html" style="color: var(--sky); text-decoration: none;">
-                https://arungopagani.is-a.dev/company.html
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td class="td-label">Developer Contact Email</td>
-            <td class="td-val">
-              <a href="mailto:gopaganiarun756@gmail.com" style="color: var(--amber-light); text-decoration: none;">
-                gopaganiarun756@gmail.com
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td class="td-label">Corporate Headquarters</td>
-            <td class="td-val">Hyderabad, Telangana, 500038, India</td>
-          </tr>
-          <tr>
-            <td class="td-label">Primary Industry</td>
-            <td class="td-val">Software Development, Mobile Applications &amp; Cloud Infrastructure</td>
-          </tr>
-          <tr>
-            <td class="td-label">Flagship Application Privacy Policy</td>
-            <td class="td-val">
-              <a href="https://fest-vault.onrender.com/privacy.html" target="_blank" style="color: var(--emerald-light); text-decoration: none;">
-                https://fest-vault.onrender.com/privacy.html ↗
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Public company information; personal contact and location details are omitted. -->
+    <section id="company-info" class="public-profile">
+      <h2 class="section-title">📄 About GTE</h2>
+      <p class="section-desc">Gopagani Tech Enterprises builds consumer software, mobile applications, and cloud services. Product information is available through the links above.</p>
+      <div class="public-profile-grid">
+        <div><span class="profile-label">Company</span><strong>Gopagani Tech Enterprises (GTE)</strong></div>
+        <div><span class="profile-label">Focus</span><strong>Software, mobile apps &amp; cloud services</strong></div>
+        <div><span class="profile-label">Website</span><a href="https://arungopagani.is-a.dev/company.html">arungopagani.is-a.dev/company.html ↗</a></div>
+        <div><span class="profile-label">Privacy</span><a href="https://fest-vault.onrender.com/privacy.html">FestVault privacy policy ↗</a></div>
+      </div>
     </section>
 
   </main>
@@ -556,9 +605,8 @@
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
-      <p style="margin-top: 6px; font-size: 12px; color: #64748b;">
-        Founder &amp; Sole Owner: Gopagani Arun • Hyderabad, Telangana, India
-      </p>
+      <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun</p>
+      <a class="footer-terminal" href="portal.html">Owner Terminal ↗</a>
     </div>
   </footer>
 
