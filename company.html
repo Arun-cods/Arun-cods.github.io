@@ -56,8 +56,8 @@
       width: 100%;
     }
     header {
-      background: rgba(15, 22, 38, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(15, 22, 38, 0.88);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--card-border);
       position: sticky;
       top: 0;
@@ -107,7 +107,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       font-size: 13px;
       font-weight: 600;
     }
@@ -118,6 +118,23 @@
     }
     .nav-links a:hover {
       color: #fff;
+    }
+    .nav-terminal-btn {
+      color: var(--amber-light) !important;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .nav-terminal-btn:hover {
+      background: rgba(245, 158, 11, 0.22);
+      color: #fff !important;
+      border-color: rgba(245, 158, 11, 0.6);
     }
     .btn {
       display: inline-flex;
@@ -153,7 +170,7 @@
 
     /* Hero */
     .company-hero {
-      padding: 50px 0 40px;
+      padding: 48px 0 36px;
       text-align: center;
     }
     .pill {
@@ -187,8 +204,8 @@
     .hero-desc {
       font-size: 17px;
       color: #cbd5e1;
-      max-width: 760px;
-      margin: 0 auto 30px;
+      max-width: 780px;
+      margin: 0 auto 28px;
       line-height: 1.6;
     }
 
@@ -197,7 +214,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      margin: 40px 0;
+      margin: 36px 0 48px;
     }
     .stat-card {
       background: var(--card-bg);
@@ -205,6 +222,10 @@
       border-radius: 18px;
       padding: 22px;
       text-align: center;
+      transition: border-color 0.2s ease;
+    }
+    .stat-card:hover {
+      border-color: rgba(245, 158, 11, 0.35);
     }
     .stat-val {
       font-size: 28px;
@@ -240,6 +261,8 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
       margin-bottom: 50px;
+      perspective: 1400px;
+      perspective-origin: center top;
     }
     .product-card {
       background: var(--card-bg);
@@ -249,11 +272,37 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.2s ease;
+      position: relative;
+      isolation: isolate;
+      transform-style: preserve-3d;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .25s ease;
     }
-    .product-card:hover {
-      border-color: rgba(245, 158, 11, 0.4);
-      transform: translateY(-2px);
+    .product-card::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, .25), rgba(168, 85, 247, .14), rgba(245, 158, 11, .2));
+      filter: blur(22px);
+      opacity: .24;
+      transform: translateZ(-22px);
+      transition: opacity .35s ease, transform .35s ease;
+      pointer-events: none;
+    }
+    .product-card > * {
+      position: relative;
+      z-index: 1;
+      transform: translateZ(16px);
+    }
+    .product-card:hover, .product-card:focus-within {
+      border-color: rgba(125, 211, 252, .58);
+      transform: translateY(-8px) rotateX(4deg) rotateY(-1.5deg);
+      box-shadow: 0 26px 60px rgba(2, 6, 23, .48), 0 0 28px rgba(56, 189, 248, .1);
+    }
+    .product-card:hover::before, .product-card:focus-within::before {
+      opacity: .65;
+      transform: translateZ(-30px) scale(1.03);
     }
     .product-tag {
       display: inline-block;
@@ -280,6 +329,11 @@
       color: var(--purple);
       border: 1px solid rgba(168, 85, 247, 0.3);
     }
+    .tag-ai {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--sky);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
     .product-title {
       font-size: 22px;
       font-weight: 800;
@@ -293,59 +347,267 @@
       margin-bottom: 20px;
     }
 
-    /* Founder Card */
-    .founder-card {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(16, 185, 129, 0.05), var(--card-bg));
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-radius: 24px;
-      padding: 36px;
+    /* Architecture Grid */
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
       margin-bottom: 50px;
     }
-    .founder-badge {
+    .arch-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+    .arch-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+    }
+    .arch-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .arch-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .arch-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Headquarters / Corporate Info */
+    .office-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 32px;
+      margin-bottom: 50px;
+    }
+    .office-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .office-item {
+      background: rgba(9, 13, 22, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .office-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .office-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.5;
+    }
+    .office-val a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+    .office-val a:hover {
+      text-decoration: underline;
+    }
+
+    /* Unified Founder & Operations Section */
+    .founder-terminal-section {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(16, 185, 129, 0.05), var(--card-bg));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 24px;
+      padding: 34px;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    /* Lock Gate (Public view before PIN 9544) */
+    .terminal-lock-gate {
+      text-align: center;
+      padding: 30px 20px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .terminal-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 12px;
+      letter-spacing: 0.06em;
+      padding: 5px 14px;
       border-radius: 999px;
-      background: rgba(245, 158, 11, 0.2);
+      background: rgba(245, 158, 11, 0.16);
       color: var(--amber-light);
+      border: 1px solid rgba(245, 158, 11, 0.35);
       margin-bottom: 14px;
     }
-
-    /* Corporate Information Table */
-    .company-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 16px;
-      font-size: 13px;
+    .terminal-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
     }
-    .company-table tr {
-      border-bottom: 1px solid var(--card-border);
-    }
-    .company-table td {
-      padding: 12px 0;
-    }
-    .td-label {
+    .terminal-desc {
+      font-size: 14px;
       color: var(--muted);
-      width: 35%;
-      font-weight: 600;
+      margin-bottom: 24px;
+      line-height: 1.6;
     }
-    .td-val {
-      color: #f1f5f9;
+    .pin-input-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .pin-input {
+      width: 140px;
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: #090d16;
+      color: #fff;
+      outline: none;
+      font-weight: 900;
+      transition: border-color 0.2s ease;
+    }
+    .pin-input:focus {
+      border-color: var(--amber-light);
+    }
+    .pin-error {
+      color: #ef4444;
+      font-size: 13px;
       font-weight: 700;
+      margin-top: 14px;
+    }
+
+    /* Unlocked Content (Shown after PIN 9544) */
+    .terminal-unlocked-content {
+      display: none;
+    }
+    .unlocked-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .status-badge-unlocked {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--emerald-light);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     footer {
       border-top: 1px solid var(--card-border);
-      padding: 30px 20px;
+      padding: 32px 20px;
       text-align: center;
       color: var(--muted);
       font-size: 13px;
       margin-top: auto;
+    }
+    .footer-founder {
+      margin-top: 6px;
+      color: #64748b;
+      font-size: 12px;
+    }
+    .footer-terminal {
+      display: inline-flex;
+      margin-top: 12px;
+      color: var(--amber-light);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    /* CSS 3D Identity Animation */
+    .hero-scene {
+      position: relative;
+      width: 196px;
+      height: 158px;
+      margin: 18px auto 10px;
+      perspective: 900px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-halo {
+      position: absolute;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, .22), rgba(168, 85, 247, .10) 45%, transparent 72%);
+      filter: blur(4px);
+      transform: translateZ(-20px);
+    }
+    .hero-orbit {
+      position: absolute;
+      width: 166px;
+      height: 88px;
+      border: 1px solid rgba(56, 189, 248, .48);
+      border-radius: 50%;
+      transform: rotateX(68deg) rotateZ(-20deg);
+      box-shadow: 0 0 28px rgba(56, 189, 248, .12);
+    }
+    .hero-cube {
+      position: relative;
+      width: 76px;
+      height: 76px;
+      transform-style: preserve-3d;
+      animation: gte-cube-turn 22s linear infinite;
+    }
+    .hero-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(125, 211, 252, .7);
+      border-radius: 14px;
+      color: #e0f2fe;
+      background: linear-gradient(145deg, rgba(56, 189, 248, .38), rgba(15, 22, 38, .88) 62%, rgba(168, 85, 247, .32));
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .08), 0 8px 25px rgba(2, 6, 23, .4);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+    }
+    .face-front { transform: translateZ(38px); }
+    .face-back { transform: rotateY(180deg) translateZ(38px); }
+    .face-right { transform: rotateY(90deg) translateZ(38px); font-size: 9px; }
+    .face-left { transform: rotateY(-90deg) translateZ(38px); font-size: 9px; }
+    .face-top { transform: rotateX(90deg) translateZ(38px); font-size: 9px; }
+    .face-bottom { transform: rotateX(-90deg) translateZ(38px); font-size: 9px; }
+    @keyframes gte-cube-turn {
+      from { transform: rotateX(-18deg) rotateY(0); }
+      to { transform: rotateX(342deg) rotateY(360deg); }
     }
 
     @media (max-width: 760px) {
@@ -358,22 +620,19 @@
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px 14px;
+        gap: 10px 14px;
       }
       .nav-links a {
         font-size: 12px;
-      }
-      .nav-links .btn {
-        padding: 8px 10px;
       }
       .container {
         padding: 24px 16px;
       }
       .company-hero {
-        padding: 30px 0 24px;
+        padding: 28px 0 20px;
       }
       .hero-title {
-        font-size: clamp(30px, 8vw, 42px);
+        font-size: clamp(28px, 8vw, 38px);
       }
       .hero-desc {
         font-size: 15px;
@@ -384,48 +643,23 @@
       .product-card {
         padding: 22px;
       }
-      .founder-card {
-        padding: 24px;
+      .founder-terminal-section {
+        padding: 22px;
       }
-      .company-table {
-        font-size: 12px;
+      .hero-scene {
+        height: 136px;
+        margin: 12px auto 8px;
       }
-      .company-table td {
-        padding: 10px 8px 10px 0;
-        vertical-align: top;
-      }
-      .td-label {
-        width: 40%;
+      .product-card:hover, .product-card:focus-within {
+        transform: translateY(-4px) rotateX(2deg);
       }
     }
-  
-    /* Subtle CSS 3D identity and product cards */
-    .hero-scene{position:relative;width:196px;height:158px;margin:18px auto 10px;perspective:900px;display:grid;place-items:center}
-    .hero-halo{position:absolute;width:132px;height:132px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.22),rgba(168,85,247,.10) 45%,transparent 72%);filter:blur(4px);transform:translateZ(-20px)}
-    .hero-orbit{position:absolute;width:166px;height:88px;border:1px solid rgba(56,189,248,.48);border-radius:50%;transform:rotateX(68deg) rotateZ(-20deg);box-shadow:0 0 28px rgba(56,189,248,.12)}
-    .hero-cube{position:relative;width:76px;height:76px;transform-style:preserve-3d;animation:gte-cube-turn 22s linear infinite}
-    .hero-face{position:absolute;inset:0;display:grid;place-items:center;border:1px solid rgba(125,211,252,.7);border-radius:14px;color:#e0f2fe;background:linear-gradient(145deg,rgba(56,189,248,.38),rgba(15,22,38,.88) 62%,rgba(168,85,247,.32));box-shadow:inset 0 0 20px rgba(255,255,255,.08),0 8px 25px rgba(2,6,23,.4);font-size:12px;font-weight:900;letter-spacing:.08em}
-    .face-front{transform:translateZ(38px)} .face-back{transform:rotateY(180deg) translateZ(38px)}
-    .face-right{transform:rotateY(90deg) translateZ(38px);font-size:9px} .face-left{transform:rotateY(-90deg) translateZ(38px);font-size:9px}
-    .face-top{transform:rotateX(90deg) translateZ(38px);font-size:9px} .face-bottom{transform:rotateX(-90deg) translateZ(38px);font-size:9px}
-    @keyframes gte-cube-turn{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(342deg) rotateY(360deg)}}
-    .product-grid{perspective:1400px;perspective-origin:center top}
-    .product-card{position:relative;isolation:isolate;transform-style:preserve-3d;transition:transform .35s ease,box-shadow .35s ease,border-color .25s ease}
-    .product-card::before{content:"";position:absolute;z-index:0;inset:14px;border-radius:18px;background:linear-gradient(135deg,rgba(56,189,248,.25),rgba(168,85,247,.14),rgba(245,158,11,.2));filter:blur(22px);opacity:.24;transform:translateZ(-22px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
-    .product-card>*{position:relative;z-index:1;transform:translateZ(16px)}
-    .product-card:hover,.product-card:focus-within{border-color:rgba(125,211,252,.58);transform:translateY(-8px) rotateX(4deg) rotateY(-1.5deg);box-shadow:0 26px 60px rgba(2,6,23,.48),0 0 28px rgba(56,189,248,.1)}
-    .product-card:hover::before,.product-card:focus-within::before{opacity:.65;transform:translateZ(-30px) scale(1.03)}
-    .public-profile{background:var(--card-bg);border:1px solid var(--card-border);border-radius:24px;padding:32px;margin-bottom:50px}
-    .public-profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-    .public-profile-grid>div{display:grid;gap:5px;padding:16px;border:1px solid var(--card-border);border-radius:14px;background:rgba(9,13,22,.6)}
-    .profile-label{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-    .public-profile-grid strong,.public-profile-grid a{color:#e2e8f0;font-size:13px;overflow-wrap:anywhere}
-    .public-profile-grid a{color:var(--sky);text-decoration:none}
-    .footer-founder{margin-top:6px;color:#64748b;font-size:12px}
-    .footer-terminal{display:inline-flex;margin-top:10px;color:var(--amber-light);font-size:12px;font-weight:800;text-decoration:none}
-    @media(max-width:760px){.hero-scene{height:136px;margin:12px auto 8px}.product-card:hover,.product-card:focus-within{transform:translateY(-4px) rotateX(2deg)}}
-    @media(prefers-reduced-motion:reduce){.hero-cube{animation:none;transform:rotateX(-18deg) rotateY(-26deg)}.product-card,.product-card::before{transition:none}.product-card:hover,.product-card:focus-within{transform:none}}
-</style>
+    @media (prefers-reduced-motion: reduce) {
+      .hero-cube { animation: none; transform: rotateX(-18deg) rotateY(-26deg); }
+      .product-card, .product-card::before { transition: none; }
+      .product-card:hover, .product-card:focus-within { transform: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -433,7 +667,7 @@
   <header>
     <div class="header-inner">
       <a href="index.html" class="brand">
-        <div class="brand-logo" style="font-size: 14px;">GTE</div>
+        <div class="brand-logo">GTE</div>
         <div>
           <div class="brand-title">Gopagani Tech Enterprises</div>
           <div class="brand-sub">Software Studio &amp; Consumer Cloud</div>
@@ -441,9 +675,11 @@
       </a>
 
       <nav class="nav-links">
-        <a href="index.html">Founder</a>
         <a href="#products">Products</a>
-        <a href="#founder">Operations</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#office">Corporate Office</a>
+        <a href="#founder-terminal" class="nav-terminal-btn">Founder &amp; Operations 🔐</a>
+        <a href="index.html" style="color: var(--sky);">← Portfolio</a>
       </nav>
     </div>
   </header>
@@ -496,7 +732,7 @@
     </div>
 
     <!-- Software Products Ecosystem -->
-    <section id="products" style="margin-top: 40px;">
+    <section id="products" style="margin-top: 20px;">
       <h2 class="section-title">🏢 Software Platforms Ecosystem</h2>
       <p class="section-desc">
         Our proprietary software platforms serving thousands of daily consumers and event celebrations.
@@ -510,10 +746,10 @@
             <span class="product-tag tag-festvault">Installable App &amp; Cloud Photo Archive</span>
             <h3 class="product-title">FestVault Cloud</h3>
             <p class="product-copy">
-              A private celebration photo archive with a guest gallery, encrypted downloads, and an installable mobile web app.
+              A private celebration photo archive with a guest gallery, encrypted downloads, and an installable mobile web app. Built without Render on GitHub Pages.
             </p>
             <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
-              <strong>Tech Stack:</strong> React 18, Express 5, Node.js, AES-256, Render Cloud, PWA
+              <strong>Tech Stack:</strong> React 18, Express 5, Node.js, AES-256, Edge CDN, PWA
             </div>
           </div>
           <div>
@@ -561,74 +797,182 @@
           </div>
         </div>
 
+        <!-- PRODUCT 4: Sign Language AI -->
+        <div class="product-card">
+          <div>
+            <span class="product-tag tag-ai">AI Computer Vision</span>
+            <h3 class="product-title">Sign Language AI</h3>
+            <p class="product-copy">
+              Real-time deep learning hand gesture classifier and sign language recognition pipeline converting non-verbal communication into synthetic speech and text in real time.
+            </p>
+            <div style="font-size: 12px; color: var(--muted); margin-bottom: 20px;">
+              <strong>Tech Stack:</strong> Python, TensorFlow, OpenCV, MediaPipe, Transfer Learning
+            </div>
+          </div>
+          <div>
+            <a href="https://github.com/Arun-cods/Sign_Language_Project" target="_blank" class="btn btn-dark" style="width: 100%; justify-content: center; color: var(--sky); border-color: rgba(56, 189, 248, 0.4);">
+              Explore AI Engine ↗
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Founder & Leadership Section (Includes NestBasket Founder & Owner Terminal) -->
-    <section class="founder-card" id="founder">
-      <div class="founder-badge">👑 Verified Founder &amp; Software Enterprise Owner</div>
-      <h2 style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px;">
-        Gopagani Arun
-      </h2>
-      <p style="font-size: 14px; color: var(--amber-light); font-weight: 700; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.04em;">
-        Founder &amp; CEO of Gopagani Tech Enterprises (GTE) &amp; NestBasket
-      </p>
-      
-      <p style="font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 18px;">
-        Gopagani Arun is an Indian software engineer, systems architect, and the sole founder &amp; CEO of <strong>Gopagani Tech Enterprises (GTE)</strong>. He architects high-impact consumer web platforms, quick-commerce arbitrage engines, and zero-knowledge encrypted celebration repositories.
+    <!-- Core Engineering Architecture Section -->
+    <section id="architecture" style="margin-top: 10px;">
+      <h2 class="section-title">⚙️ Core Engineering Architecture &amp; Security</h2>
+      <p class="section-desc">
+        Underlying cryptographic protocols, real-time telemetry systems, and edge infrastructure powering GTE services.
       </p>
 
-
-      <!-- Founder Links -->
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px;">
-        <a href="index.html" class="btn btn-amber">
-          View Founder Portfolio ↗
-        </a>
-        <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" class="btn btn-dark">
-          Connect on LinkedIn ↗
-        </a>
-        <a href="https://github.com/Arun-cods" target="_blank" class="btn btn-dark">
-          GitHub Profile ↗
-        </a>
-      </div>
-
-      <!-- Owner Terminal & Service Directory (Protected by PIN Lock 9544) -->
-      <div style="padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 6px;">
-          <h3 style="font-size: 20px; font-weight: 800; color: #fff; margin: 0;">
-            🛡️ Owner Terminal &amp; Service Directory
-          </h3>
-          <span id="terminal-status-badge" style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">
-            🔒 Locked
-          </span>
+      <div class="arch-grid">
+        <div class="arch-card">
+          <div class="arch-icon">🔐</div>
+          <h3 class="arch-title">Zero-Knowledge Cryptography</h3>
+          <p class="arch-desc">
+            Client-side AES-256-GCM encryption executed natively within modern browsers via WebCrypto. Celebration media is fully encrypted before upload; servers hold zero decryption keys.
+          </p>
         </div>
-        <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
-          Operations and command terminals are restricted to the verified enterprise owner.
+
+        <div class="arch-card">
+          <div class="arch-icon">⚡</div>
+          <h3 class="arch-title">Darkstore Arbitrage Telemetry</h3>
+          <p class="arch-desc">
+            Low-latency catalog scraping and rate comparison across Blinkit, Zepto, Swiggy Instamart, BigBasket Now, and Flipkart Minutes with automated price delta alerts.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-icon">🔄</div>
+          <h3 class="arch-title">Distributed State Synchronization</h3>
+          <p class="arch-desc">
+            WebSocket-based real-time state synchronizer facilitating simultaneous multi-user cart edits, conflict resolution, and instantaneous checkout splits for CartShare.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-icon">📱</div>
+          <h3 class="arch-title">PWA &amp; Edge Delivery</h3>
+          <p class="arch-desc">
+            Progressive Web Apps configured with ServiceWorker caching, offline fallbacks, and sub-second asset delivery via worldwide Edge CDN nodes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corporate Headquarters & Verification -->
+    <section class="office-section" id="office">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <h2 class="section-title" style="margin: 0;">🏛️ Registered Corporate Headquarters</h2>
+        <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; background: rgba(16, 185, 129, 0.15); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.3);">
+          ✓ Verified Enterprise
+        </span>
+      </div>
+      <p class="section-desc" style="margin-top: 6px; margin-bottom: 0;">
+        Primary administrative office, registered business location, and enterprise communications.
+      </p>
+
+      <div class="office-grid">
+        <div class="office-item">
+          <div class="office-label">Enterprise Name</div>
+          <div class="office-val">Gopagani Tech Enterprises (GTE)</div>
+        </div>
+
+        <div class="office-item">
+          <div class="office-label">Registered Headquarters</div>
+          <div class="office-val">Sagar Complex, Sripuram, BN Reddy Nagar, Hyderabad, Telangana 500070, India</div>
+        </div>
+
+        <div class="office-item">
+          <div class="office-label">Jurisdiction &amp; Legal</div>
+          <div class="office-val">Telangana, Republic of India • Proprietary Software Studio</div>
+        </div>
+
+        <div class="office-item">
+          <div class="office-label">Executive Inquiries</div>
+          <div class="office-val">
+            <a href="tel:+919014218406">+91 90142 18406</a> &bull; 
+            <a href="mailto:gopaganiarun756@gmail.com">gopaganiarun756@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unified Founder & Operations Section (PIN Locked with 9544) -->
+    <section class="founder-terminal-section" id="founder-terminal">
+      
+      <!-- LOCKED STATE (Public default view - Hides Founder & Operations until PIN 9544) -->
+      <div id="terminal-locked-view" class="terminal-lock-gate">
+        <span class="terminal-badge">🔒 RESTRICTED EXECUTIVE ACCESS</span>
+        <h2 class="terminal-title">Founder &amp; Operations Terminal</h2>
+        <p class="terminal-desc">
+          Executive founder credentials, live darkstore telemetry, and internal operational command hubs are restricted to Gopagani Arun. Enter the 4-digit security PIN to unlock.
         </p>
 
-        <!-- PIN Entry Gate (Shown when locked) -->
-        <div id="terminal-lock-gate" style="background: rgba(15, 22, 38, 0.95); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 18px; padding: 26px; text-align: center; max-width: 440px; margin: 0 auto 10px;">
-          <div style="font-size: 32px; margin-bottom: 8px;">🔐</div>
-          <h4 style="font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 6px;">
-            Founder Authentication Required
-          </h4>
-          <p style="font-size: 13px; color: var(--muted); margin-bottom: 18px;">
-            Enter the 4-digit security PIN to unlock the Owner Terminal.
-          </p>
-          <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap;">
-            <input type="password" id="terminal-pin-input" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" style="width: 140px; text-align: center; font-size: 20px; letter-spacing: 6px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--card-border); background: #090d16; color: #fff; outline: none; font-weight: 800;" />
-            <button type="button" id="terminal-unlock-btn" class="btn btn-amber" style="padding: 10px 20px;">
-              Unlock ⚡
-            </button>
-          </div>
-          <p id="terminal-pin-error" style="display: none; color: #ef4444; font-size: 12px; font-weight: 700; margin-top: 12px; margin-bottom: 0;">
-            Incorrect PIN. Access denied.
-          </p>
+        <div class="pin-input-group">
+          <input type="password" id="terminal-pin-input" class="pin-input" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" />
+          <button type="button" id="terminal-unlock-btn" class="btn btn-amber" style="padding: 10px 22px;">
+            Unlock Terminal ⚡
+          </button>
+        </div>
+        <p id="terminal-pin-error" class="pin-error" style="display: none;">
+          Incorrect PIN. Access denied.
+        </p>
+      </div>
+
+      <!-- UNLOCKED STATE (Revealed only when 9544 is entered) -->
+      <div id="terminal-unlocked-view" class="terminal-unlocked-content">
+        
+        <div class="unlocked-header-row">
+          <span class="status-badge-unlocked">
+            🔓 Authenticated: Founder &amp; CEO
+          </span>
+          <button type="button" id="terminal-relock-btn" style="background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline;">
+            🔒 Lock Terminal
+          </button>
         </div>
 
-        <!-- Terminal Content (Hidden until PIN 9544 is entered) -->
-        <div id="terminal-content" style="display: none;">
+        <!-- Founder Executive Profile -->
+        <div style="margin-bottom: 30px;">
+          <div class="founder-badge" style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 999px; background: rgba(245, 158, 11, 0.2); color: var(--amber-light); margin-bottom: 12px;">
+            👑 Verified Founder &amp; Software Enterprise Owner
+          </div>
+          <h2 style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">
+            Gopagani Arun
+          </h2>
+          <p style="font-size: 14px; color: var(--amber-light); font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.04em;">
+            Founder &amp; CEO of Gopagani Tech Enterprises (GTE) &amp; NestBasket
+          </p>
+          <p style="font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px;">
+            Gopagani Arun is an Indian software engineer, systems architect, and the sole founder &amp; CEO of <strong>Gopagani Tech Enterprises (GTE)</strong>. He architects high-impact consumer web platforms, quick-commerce arbitrage engines, and zero-knowledge encrypted celebration repositories.
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="index.html" class="btn btn-amber">
+              View Founder Portfolio ↗
+            </a>
+            <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+              Connect on LinkedIn ↗
+            </a>
+            <a href="https://github.com/Arun-cods" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+              GitHub Profile ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Owner Terminals Directory -->
+        <div style="padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+          <h3 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px;">
+            🛡️ Owner Terminal &amp; Operations Directory
+          </h3>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+            Direct operations, storage management, and executive command hubs for GTE platforms.
+          </p>
+
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+            
+            <!-- Terminal 1: FestVault Owner Portal -->
             <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
               <span class="product-tag tag-festvault" style="margin-bottom: 10px;">🔐 Admin Access</span>
               <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">FestVault Owner Portal</h4>
@@ -640,6 +984,7 @@
               </a>
             </div>
 
+            <!-- Terminal 2: Executive Portal (NestBasket) -->
             <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
               <span class="product-tag tag-nestbasket" style="margin-bottom: 10px; background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.4);">Founder Access</span>
               <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">Executive Portal</h4>
@@ -650,37 +995,32 @@
                 Launch Portal ⚡
               </a>
             </div>
-          </div>
-          <div style="display: flex; justify-content: flex-end; margin-top: 14px;">
-            <button type="button" id="terminal-relock-btn" style="background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline;">
-              🔒 Lock Terminal
-            </button>
+
           </div>
         </div>
+
       </div>
     </section>
-  
-</main>
+
+  </main>
 
   <!-- Footer -->
   <footer>
     <div class="container">
       <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
-      <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun</p>
-      <a class="footer-terminal" href="#founder">Owner Terminal ↑</a>
+      <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun &bull; Hyderabad, Telangana, India</p>
+      <a class="footer-terminal" href="#founder-terminal">Founder &amp; Operations 🔐</a>
     </div>
   </footer>
 
-  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const pinInput = document.getElementById('terminal-pin-input');
     const unlockBtn = document.getElementById('terminal-unlock-btn');
     const errorMsg = document.getElementById('terminal-pin-error');
-    const lockGate = document.getElementById('terminal-lock-gate');
-    const terminalContent = document.getElementById('terminal-content');
-    const statusBadge = document.getElementById('terminal-status-badge');
+    const lockedView = document.getElementById('terminal-locked-view');
+    const unlockedView = document.getElementById('terminal-unlocked-view');
     const relockBtn = document.getElementById('terminal-relock-btn');
 
     function unlockTerminal() {
@@ -696,22 +1036,15 @@
     }
 
     function showUnlocked() {
-      lockGate.style.display = 'none';
-      terminalContent.style.display = 'block';
-      statusBadge.textContent = '🔓 Unlocked';
-      statusBadge.style.background = 'rgba(16, 185, 129, 0.15)';
-      statusBadge.style.color = '#34d399';
-      statusBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+      lockedView.style.display = 'none';
+      unlockedView.style.display = 'block';
+      errorMsg.style.display = 'none';
     }
 
     function lockTerminal() {
       sessionStorage.removeItem('gte_terminal_unlocked');
-      lockGate.style.display = 'block';
-      terminalContent.style.display = 'none';
-      statusBadge.textContent = '🔒 Locked';
-      statusBadge.style.background = 'rgba(239, 68, 68, 0.15)';
-      statusBadge.style.color = '#f87171';
-      statusBadge.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+      lockedView.style.display = 'block';
+      unlockedView.style.display = 'none';
       errorMsg.style.display = 'none';
       pinInput.style.borderColor = 'var(--card-border)';
       pinInput.value = '';
