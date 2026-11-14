@@ -107,7 +107,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       font-size: 13px;
       font-weight: 600;
     }
@@ -119,28 +119,11 @@
     .nav-links a:hover {
       color: #fff;
     }
-    .nav-terminal-btn {
-      color: var(--amber-light) !important;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 6px 12px;
-      border-radius: 8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 700;
-      transition: all 0.2s ease;
-    }
-    .nav-terminal-btn:hover {
-      background: rgba(245, 158, 11, 0.22);
-      color: #fff !important;
-      border-color: rgba(245, 158, 11, 0.6);
-    }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px;
+      padding: 10px 20px;
       border-radius: 12px;
       font-size: 13px;
       font-weight: 700;
@@ -424,21 +407,68 @@
       text-decoration: underline;
     }
 
-    /* Unified Founder & Operations Section */
-    .founder-terminal-section {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(16, 185, 129, 0.05), var(--card-bg));
-      border: 1px solid rgba(245, 158, 11, 0.35);
+    /* ======================================================== */
+    /* EXECUTIVE MODAL OVERLAY: FOUNDER & OPERATIONS (LOCKED)   */
+    /* ======================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #0b1120;
+      border: 1px solid rgba(245, 158, 11, 0.4);
       border-radius: 24px;
-      padding: 34px;
-      margin-bottom: 50px;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.85), 0 0 40px rgba(245, 158, 11, 0.15);
+      width: 100%;
+      max-width: 760px;
+      padding: 32px;
       position: relative;
+      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      margin: auto;
+    }
+    @keyframes modalPop {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #1a2333;
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .modal-close-btn:hover {
+      background: #222e44;
+      color: #fff;
     }
 
-    /* Lock Gate (Public view before PIN 9544) */
-    .terminal-lock-gate {
+    /* Locked state inside modal */
+    .modal-lock-gate {
       text-align: center;
-      padding: 30px 20px;
-      max-width: 520px;
+      padding: 20px 10px;
+      max-width: 480px;
       margin: 0 auto;
     }
     .terminal-badge {
@@ -499,19 +529,19 @@
       margin-top: 14px;
     }
 
-    /* Unlocked Content (Shown after PIN 9544) */
-    .terminal-unlocked-content {
+    /* Unlocked content inside modal */
+    .modal-unlocked-content {
       display: none;
     }
-    .unlocked-header-row {
+    .unlocked-topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     .status-badge-unlocked {
       font-size: 11px;
@@ -541,13 +571,20 @@
       color: #64748b;
       font-size: 12px;
     }
-    .footer-terminal {
-      display: inline-flex;
-      margin-top: 12px;
-      color: var(--amber-light);
-      font-size: 12px;
-      font-weight: 800;
+    .footer-terminal-link {
+      color: #ffffff !important;
       text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .footer-terminal-link:hover {
+      opacity: 0.85;
+      text-decoration: underline;
     }
 
     /* CSS 3D Identity Animation */
@@ -620,7 +657,7 @@
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px 14px;
+        gap: 10px 16px;
       }
       .nav-links a {
         font-size: 12px;
@@ -643,8 +680,9 @@
       .product-card {
         padding: 22px;
       }
-      .founder-terminal-section {
-        padding: 22px;
+      .modal-box {
+        padding: 22px 18px;
+        border-radius: 18px;
       }
       .hero-scene {
         height: 136px;
@@ -663,7 +701,7 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header: Products, Architecture, Corporate Office, Portfolio only (No Founder/Operations at top) -->
   <header>
     <div class="header-inner">
       <a href="index.html" class="brand">
@@ -678,7 +716,6 @@
         <a href="#products">Products</a>
         <a href="#architecture">Architecture</a>
         <a href="#office">Corporate Office</a>
-        <a href="#founder-terminal" class="nav-terminal-btn">Founder &amp; Operations 🔐</a>
         <a href="index.html" style="color: var(--sky);">← Portfolio</a>
       </nav>
     </div>
@@ -705,9 +742,9 @@
         </div>
       </div>
 
+      <!-- Action Button: Only Explore Live Software Products (Git link removed) -->
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="#products" class="btn btn-amber">Explore Live Software Products ↓</a>
-        <a href="https://github.com/Arun-cods" target="_blank" rel="noopener noreferrer" class="btn btn-dark">GitHub Organization ↗</a>
       </div>
     </section>
 
@@ -731,7 +768,7 @@
       </div>
     </div>
 
-    <!-- Software Products Ecosystem -->
+    <!-- Software Platforms Ecosystem -->
     <section id="products" style="margin-top: 20px;">
       <h2 class="section-title">🏢 Software Platforms Ecosystem</h2>
       <p class="section-desc">
@@ -899,84 +936,101 @@
       </div>
     </section>
 
-    <!-- Unified Founder & Operations Section (PIN Locked with 9544) -->
-    <section class="founder-terminal-section" id="founder-terminal">
-      
-      <!-- LOCKED STATE (Public default view - Hides Founder & Operations until PIN 9544) -->
-      <div id="terminal-locked-view" class="terminal-lock-gate">
+  </main>
+
+  <!-- Footer (With White Founder & Operations Link) -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
+      <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun &bull; Hyderabad, Telangana, India</p>
+      <div style="margin-top: 12px;">
+        <a href="javascript:void(0)" id="open-terminal-footer-btn" class="footer-terminal-link">Founder &amp; Operations 🔐</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- EXECUTIVE TERMINAL MODAL: LOCKED BEHIND SECURITY PIN 9544 -->
+  <!-- ======================================================== -->
+  <div id="founder-terminal-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="terminal-modal-title">
+    <div class="modal-box">
+      <button type="button" class="modal-close-btn" id="close-modal-btn" aria-label="Close Terminal">✕</button>
+
+      <!-- LOCKED STATE (Requires PIN 9544) -->
+      <div id="modal-locked-view" class="modal-lock-gate">
         <span class="terminal-badge">🔒 RESTRICTED EXECUTIVE ACCESS</span>
-        <h2 class="terminal-title">Founder &amp; Operations Terminal</h2>
+        <h2 id="terminal-modal-title" class="terminal-title">Founder &amp; Operations Terminal</h2>
         <p class="terminal-desc">
           Executive founder credentials, live darkstore telemetry, and internal operational command hubs are restricted to Gopagani Arun. Enter the 4-digit security PIN to unlock.
         </p>
 
         <div class="pin-input-group">
-          <input type="password" id="terminal-pin-input" class="pin-input" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" />
-          <button type="button" id="terminal-unlock-btn" class="btn btn-amber" style="padding: 10px 22px;">
+          <input type="password" id="modal-pin-input" class="pin-input" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" />
+          <button type="button" id="modal-unlock-btn" class="btn btn-amber" style="padding: 10px 22px;">
             Unlock Terminal ⚡
           </button>
         </div>
-        <p id="terminal-pin-error" class="pin-error" style="display: none;">
+        <p id="modal-pin-error" class="pin-error" style="display: none;">
           Incorrect PIN. Access denied.
         </p>
       </div>
 
-      <!-- UNLOCKED STATE (Revealed only when 9544 is entered) -->
-      <div id="terminal-unlocked-view" class="terminal-unlocked-content">
+      <!-- UNLOCKED STATE (Revealed only after PIN 9544) -->
+      <div id="modal-unlocked-view" class="modal-unlocked-content">
         
-        <div class="unlocked-header-row">
+        <div class="unlocked-topbar">
           <span class="status-badge-unlocked">
             🔓 Authenticated: Founder &amp; CEO
           </span>
-          <button type="button" id="terminal-relock-btn" style="background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline;">
+          <button type="button" id="modal-relock-btn" style="background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline;">
             🔒 Lock Terminal
           </button>
         </div>
 
         <!-- Founder Executive Profile -->
-        <div style="margin-bottom: 30px;">
+        <div style="margin-bottom: 26px;">
           <div class="founder-badge" style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 999px; background: rgba(245, 158, 11, 0.2); color: var(--amber-light); margin-bottom: 12px;">
             👑 Verified Founder &amp; Software Enterprise Owner
           </div>
-          <h2 style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">
+          <h2 style="font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 4px;">
             Gopagani Arun
           </h2>
-          <p style="font-size: 14px; color: var(--amber-light); font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.04em;">
+          <p style="font-size: 13px; color: var(--amber-light); font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.04em;">
             Founder &amp; CEO of Gopagani Tech Enterprises (GTE) &amp; NestBasket
           </p>
-          <p style="font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px;">
+          <p style="font-size: 14px; color: #cbd5e1; line-height: 1.7; margin-bottom: 18px;">
             Gopagani Arun is an Indian software engineer, systems architect, and the sole founder &amp; CEO of <strong>Gopagani Tech Enterprises (GTE)</strong>. He architects high-impact consumer web platforms, quick-commerce arbitrage engines, and zero-knowledge encrypted celebration repositories.
           </p>
 
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="index.html" class="btn btn-amber">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="index.html" class="btn btn-amber" style="padding: 8px 14px; font-size: 12px;">
               View Founder Portfolio ↗
             </a>
-            <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+            <a href="https://www.linkedin.com/in/gopagani-arun-024856326/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="padding: 8px 14px; font-size: 12px;">
               Connect on LinkedIn ↗
             </a>
-            <a href="https://github.com/Arun-cods" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+            <a href="https://github.com/Arun-cods" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="padding: 8px 14px; font-size: 12px;">
               GitHub Profile ↗
             </a>
           </div>
         </div>
 
         <!-- Owner Terminals Directory -->
-        <div style="padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-          <h3 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px;">
+        <div style="padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+          <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px;">
             🛡️ Owner Terminal &amp; Operations Directory
           </h3>
-          <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
             Direct operations, storage management, and executive command hubs for GTE platforms.
           </p>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
             
             <!-- Terminal 1: FestVault Owner Portal -->
-            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
-              <span class="product-tag tag-festvault" style="margin-bottom: 10px;">🔐 Admin Access</span>
-              <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">FestVault Owner Portal</h4>
-              <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 18px;">
+              <span class="product-tag tag-festvault" style="margin-bottom: 8px;">🔐 Admin Access</span>
+              <h4 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 4px;">FestVault Owner Portal</h4>
+              <p style="font-size: 12px; color: var(--muted); margin-bottom: 14px;">
                 Manage celebration albums and event storage via the authenticated FestVault owner service.
               </p>
               <a href="https://fest-vault.onrender.com/owner" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px;">
@@ -985,10 +1039,10 @@
             </div>
 
             <!-- Terminal 2: Executive Portal (NestBasket) -->
-            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
-              <span class="product-tag tag-nestbasket" style="margin-bottom: 10px; background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.4);">Founder Access</span>
-              <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">Executive Portal</h4>
-              <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 18px;">
+              <span class="product-tag tag-nestbasket" style="margin-bottom: 8px; background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.4);">Founder Access</span>
+              <h4 style="font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 4px;">Executive Portal</h4>
+              <p style="font-size: 12px; color: var(--muted); margin-bottom: 14px;">
                 Direct access to the executive command hub: live darkstore sync telemetry, shopper audit logs, biometric &amp; PIN authentication, and B2B affiliate revenue management.
               </p>
               <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px; border-color: rgba(16, 185, 129, 0.5); color: var(--emerald-light); font-weight: 800;">
@@ -1000,28 +1054,35 @@
         </div>
 
       </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
-      <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun &bull; Hyderabad, Telangana, India</p>
-      <a class="footer-terminal" href="#founder-terminal">Founder &amp; Operations 🔐</a>
     </div>
-  </footer>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const pinInput = document.getElementById('terminal-pin-input');
-    const unlockBtn = document.getElementById('terminal-unlock-btn');
-    const errorMsg = document.getElementById('terminal-pin-error');
-    const lockedView = document.getElementById('terminal-locked-view');
-    const unlockedView = document.getElementById('terminal-unlocked-view');
-    const relockBtn = document.getElementById('terminal-relock-btn');
+    const modal = document.getElementById('founder-terminal-modal');
+    const openFooterBtn = document.getElementById('open-terminal-footer-btn');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const pinInput = document.getElementById('modal-pin-input');
+    const unlockBtn = document.getElementById('modal-unlock-btn');
+    const errorMsg = document.getElementById('modal-pin-error');
+    const lockedView = document.getElementById('modal-locked-view');
+    const unlockedView = document.getElementById('modal-unlocked-view');
+    const relockBtn = document.getElementById('modal-relock-btn');
+
+    function openModal() {
+      modal.classList.add('active');
+      if (sessionStorage.getItem('gte_terminal_unlocked') === '1') {
+        showUnlocked();
+      } else {
+        showLocked();
+        setTimeout(() => pinInput.focus(), 100);
+      }
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
 
     function unlockTerminal() {
       if (pinInput.value === '9544') {
@@ -1041,8 +1102,7 @@
       errorMsg.style.display = 'none';
     }
 
-    function lockTerminal() {
-      sessionStorage.removeItem('gte_terminal_unlocked');
+    function showLocked() {
       lockedView.style.display = 'block';
       unlockedView.style.display = 'none';
       errorMsg.style.display = 'none';
@@ -1050,15 +1110,36 @@
       pinInput.value = '';
     }
 
-    if (sessionStorage.getItem('gte_terminal_unlocked') === '1') {
-      showUnlocked();
+    function lockTerminal() {
+      sessionStorage.removeItem('gte_terminal_unlocked');
+      showLocked();
+      pinInput.focus();
     }
+
+    if (openFooterBtn) openFooterBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
 
     unlockBtn.addEventListener('click', unlockTerminal);
     pinInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') unlockTerminal();
     });
     if (relockBtn) relockBtn.addEventListener('click', lockTerminal);
+
+    // Auto open if hash is #founder-terminal, #founder, or #operations
+    if (window.location.hash === '#founder-terminal' || window.location.hash === '#founder' || window.location.hash === '#operations') {
+      openModal();
+    }
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#founder-terminal' || window.location.hash === '#founder' || window.location.hash === '#operations') {
+        openModal();
+      }
+    });
   </script>
 
 </body>
