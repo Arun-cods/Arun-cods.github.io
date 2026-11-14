@@ -1,0 +1,314 @@
+/* ==========================================================================
+   CartShare - Collaborative Shopping Ecosystem
+   Author: Gopagani Arun
+   Styles: Layout, Components, Animations & Print Media Rules
+   ========================================================================== */
+
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #10b981;
+  --accent-color: #f59e0b;
+  --dark-color: #1f2937;
+  --light-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --text-muted: #64748b;
+  --danger-color: #ef4444;
+}
+
+body {
+  background-color: var(--light-bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--dark-color);
+  min-height: 100vh;
+}
+
+/* Navbar Brand & Status */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Room Hero / Access Card */
+.access-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-badge {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px dashed #6366f1;
+}
+
+/* Delivery Threshold Progress Bar */
+.threshold-container {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.threshold-progress {
+  height: 14px;
+  border-radius: 7px;
+  background-color: #e2e8f0;
+  overflow: hidden;
+}
+
+.threshold-progress .progress-bar {
+  transition: width 0.4s ease-in-out;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+.threshold-unlocked {
+  background: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+
+/* User Avatar & Attribution */
+.user-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 3px 10px 3px 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.user-avatar-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Cart Table & Cards */
+.cart-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.cart-table th {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: #f8fafc;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.item-delete-btn {
+  color: var(--danger-color);
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.item-delete-btn:hover {
+  background-color: #fee2e2;
+}
+
+/* Expense Split Breakdown */
+.expense-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+/* Activity Log */
+.log-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.log-scroll {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.log-entry {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  border-left: 3px solid transparent;
+  transition: background-color 0.15s ease;
+}
+
+.log-entry:hover {
+  background-color: #f8fafc;
+}
+
+.log-entry.log-add {
+  border-left-color: #10b981;
+}
+
+.log-entry.log-remove {
+  border-left-color: #ef4444;
+}
+
+.log-entry.log-room {
+  border-left-color: #3b82f6;
+}
+
+.log-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+/* Receipt Modal & Layout */
+.receipt-paper {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  font-family: "Courier New", Courier, monospace;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px dashed #444;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.receipt-table {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.receipt-table th,
+.receipt-table td {
+  padding: 4px 6px;
+  font-size: 0.9rem;
+}
+
+.receipt-totals {
+  border-top: 2px dashed #444;
+  border-bottom: 2px dashed #444;
+  padding: 10px 0;
+  margin-bottom: 14px;
+}
+
+.receipt-split {
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   CSS Print Media Rules (@media print)
+   Generates a clean, audit-ready printed receipt without UI clutter
+   ========================================================================== */
+@media print {
+  /* Hide all interactive and navigation UI */
+  nav,
+  footer,
+  #room-section,
+  #add-item-form,
+  .btn,
+  .activity-log-section,
+  .modal-footer,
+  .modal-header .btn-close,
+  .item-delete-btn,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-family: "Courier New", Courier, monospace !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Force modal backdrop and styling to print cleanly */
+  .modal {
+    position: static !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .modal-content {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .receipt-paper {
+    border: none !important;
+    padding: 10px 0 !important;
+  }
+
+  /* If printing main screen instead of modal */
+  #cart-section {
+    display: block !important;
+  }
+}
