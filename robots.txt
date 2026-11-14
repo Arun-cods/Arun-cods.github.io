@@ -1,3 +1,5 @@
 User-agent: *
+Disallow: /onebasket/
+Disallow: /nestbasket/founder/
 Allow: /
 Sitemap: https://arungopagani.is-a.dev/sitemap.xml
