@@ -592,36 +592,69 @@
         </a>
       </div>
 
-      <!-- Owner Terminal & Service Directory -->
+      <!-- Owner Terminal & Service Directory (Protected by PIN Lock 9544) -->
       <div style="padding-top: 26px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-        <h3 style="font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px;">
-          🛡️ Owner Terminal &amp; Service Directory
-        </h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 6px;">
+          <h3 style="font-size: 20px; font-weight: 800; color: #fff; margin: 0;">
+            🛡️ Owner Terminal &amp; Service Directory
+          </h3>
+          <span id="terminal-status-badge" style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">
+            🔒 Locked
+          </span>
+        </div>
         <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
-          A centralized operations directory for GTE's deployed platforms, dashboards, and live software services.
+          Operations and command terminals are restricted to the verified enterprise owner.
         </p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
-          <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
-            <span class="product-tag tag-festvault" style="margin-bottom: 10px;">🔐 Admin Access</span>
-            <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">FestVault Owner Portal</h4>
-            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
-              Manage celebration albums and event storage via the authenticated FestVault owner service.
-            </p>
-            <a href="https://fest-vault.onrender.com/owner" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px;">
-              Open Owner Portal ↗
-            </a>
+        <!-- PIN Entry Gate (Shown when locked) -->
+        <div id="terminal-lock-gate" style="background: rgba(15, 22, 38, 0.95); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 18px; padding: 26px; text-align: center; max-width: 440px; margin: 0 auto 10px;">
+          <div style="font-size: 32px; margin-bottom: 8px;">🔐</div>
+          <h4 style="font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 6px;">
+            Founder Authentication Required
+          </h4>
+          <p style="font-size: 13px; color: var(--muted); margin-bottom: 18px;">
+            Enter the 4-digit security PIN to unlock the Owner Terminal.
+          </p>
+          <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <input type="password" id="terminal-pin-input" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" style="width: 140px; text-align: center; font-size: 20px; letter-spacing: 6px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--card-border); background: #090d16; color: #fff; outline: none; font-weight: 800;" />
+            <button type="button" id="terminal-unlock-btn" class="btn btn-amber" style="padding: 10px 20px;">
+              Unlock ⚡
+            </button>
           </div>
+          <p id="terminal-pin-error" style="display: none; color: #ef4444; font-size: 12px; font-weight: 700; margin-top: 12px; margin-bottom: 0;">
+            Incorrect PIN. Access denied.
+          </p>
+        </div>
 
-          <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
-            <span class="product-tag tag-nestbasket" style="margin-bottom: 10px; background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.4);">Founder Access</span>
-            <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">Executive Portal</h4>
-            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
-              Direct access to the executive command hub: live darkstore sync telemetry, shopper audit logs, biometric &amp; PIN authentication, and B2B affiliate revenue management.
-            </p>
-            <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px; border-color: rgba(16, 185, 129, 0.5); color: var(--emerald-light); font-weight: 800;">
-              Launch Portal ⚡
-            </a>
+        <!-- Terminal Content (Hidden until PIN 9544 is entered) -->
+        <div id="terminal-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
+              <span class="product-tag tag-festvault" style="margin-bottom: 10px;">🔐 Admin Access</span>
+              <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">FestVault Owner Portal</h4>
+              <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+                Manage celebration albums and event storage via the authenticated FestVault owner service.
+              </p>
+              <a href="https://fest-vault.onrender.com/owner" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px;">
+                Open Owner Portal ↗
+              </a>
+            </div>
+
+            <div style="background: rgba(15, 22, 38, 0.85); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px;">
+              <span class="product-tag tag-nestbasket" style="margin-bottom: 10px; background: rgba(16, 185, 129, 0.2); color: var(--emerald-light); border: 1px solid rgba(16, 185, 129, 0.4);">Founder Access</span>
+              <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 6px;">Executive Portal</h4>
+              <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+                Direct access to the executive command hub: live darkstore sync telemetry, shopper audit logs, biometric &amp; PIN authentication, and B2B affiliate revenue management.
+              </p>
+              <a href="https://arungopagani.is-a.dev/nestbasket/founder/gopagani-arun/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px; border-color: rgba(16, 185, 129, 0.5); color: var(--emerald-light); font-weight: 800;">
+                Launch Portal ⚡
+              </a>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: flex-end; margin-top: 14px;">
+            <button type="button" id="terminal-relock-btn" style="background: none; border: none; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline;">
+              🔒 Lock Terminal
+            </button>
           </div>
         </div>
       </div>
@@ -638,8 +671,62 @@
     </div>
   </footer>
 
+  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const pinInput = document.getElementById('terminal-pin-input');
+    const unlockBtn = document.getElementById('terminal-unlock-btn');
+    const errorMsg = document.getElementById('terminal-pin-error');
+    const lockGate = document.getElementById('terminal-lock-gate');
+    const terminalContent = document.getElementById('terminal-content');
+    const statusBadge = document.getElementById('terminal-status-badge');
+    const relockBtn = document.getElementById('terminal-relock-btn');
+
+    function unlockTerminal() {
+      if (pinInput.value === '9544') {
+        sessionStorage.setItem('gte_terminal_unlocked', '1');
+        showUnlocked();
+      } else {
+        errorMsg.style.display = 'block';
+        pinInput.style.borderColor = '#ef4444';
+        pinInput.value = '';
+        pinInput.focus();
+      }
+    }
+
+    function showUnlocked() {
+      lockGate.style.display = 'none';
+      terminalContent.style.display = 'block';
+      statusBadge.textContent = '🔓 Unlocked';
+      statusBadge.style.background = 'rgba(16, 185, 129, 0.15)';
+      statusBadge.style.color = '#34d399';
+      statusBadge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+    }
+
+    function lockTerminal() {
+      sessionStorage.removeItem('gte_terminal_unlocked');
+      lockGate.style.display = 'block';
+      terminalContent.style.display = 'none';
+      statusBadge.textContent = '🔒 Locked';
+      statusBadge.style.background = 'rgba(239, 68, 68, 0.15)';
+      statusBadge.style.color = '#f87171';
+      statusBadge.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+      errorMsg.style.display = 'none';
+      pinInput.style.borderColor = 'var(--card-border)';
+      pinInput.value = '';
+    }
+
+    if (sessionStorage.getItem('gte_terminal_unlocked') === '1') {
+      showUnlocked();
+    }
+
+    unlockBtn.addEventListener('click', unlockTerminal);
+    pinInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') unlockTerminal();
+    });
+    if (relockBtn) relockBtn.addEventListener('click', lockTerminal);
   </script>
+
 </body>
 </html>
