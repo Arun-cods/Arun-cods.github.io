@@ -440,6 +440,7 @@
       <nav class="nav-links">
         <a href="index.html">Founder</a>
         <a href="#products">Products</a>
+        <a href="#portal">Operations Portal</a>
         <a href="#company-info">Corporate Profile</a>
       </nav>
     </div>
@@ -587,6 +588,80 @@
       </div>
     </section>
 
+    <!-- Owner Terminal & Services Directory (Merged from portal.html into Single Page) -->
+    <section id="portal" class="portal-section" style="margin-top: 40px; margin-bottom: 50px;">
+      <div class="pill">Operations &amp; Control</div>
+      <h2 class="section-title">🛡️ Owner Terminal &amp; Service Directory</h2>
+      <p class="section-desc">
+        A centralized operations directory for GTE's deployed platforms, dashboards, and live software services.
+      </p>
+
+      <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom: 20px;">
+        <div class="product-card" style="padding: 24px;">
+          <div>
+            <span class="product-tag tag-festvault">🔐 Admin Access</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">FestVault Owner Portal</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+              Manage celebration albums and event storage via the authenticated FestVault owner service.
+            </p>
+          </div>
+          <div>
+            <a href="https://fest-vault.onrender.com/owner" target="_blank" rel="noopener noreferrer" class="btn btn-amber" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px;">
+              Open Owner Portal ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="product-card" style="padding: 24px;">
+          <div>
+            <span class="product-tag tag-festvault">🎉 Live Cloud</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">FestVault Cloud App</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+              Launch the installable zero-knowledge encrypted celebration photo archive.
+            </p>
+          </div>
+          <div>
+            <a href="https://fest-vault.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px; border-color: rgba(245, 158, 11, 0.4); color: var(--amber-light);">
+              Launch FestVault ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="product-card" style="padding: 24px;">
+          <div>
+            <span class="product-tag tag-nestbasket">🛒 Quick Commerce</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">NestBasket Platform</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+              Live multi-store grocery price comparison across Blinkit, Zepto, Swiggy Instamart, BigBasket, and Flipkart.
+            </p>
+          </div>
+          <div>
+            <a href="https://arungopagani.is-a.dev/nestbasket/" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px; border-color: rgba(16, 185, 129, 0.4); color: var(--emerald-light);">
+              Visit NestBasket 🛒
+            </a>
+          </div>
+        </div>
+
+        <div class="product-card" style="padding: 24px;">
+          <div>
+            <span class="product-tag tag-cartshare">🧺 Split Commerce</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">CartShare Repository</h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">
+              Collaborative split-checkout and shared cart application built with WebSockets and Node.js.
+            </p>
+          </div>
+          <div>
+            <a href="https://github.com/Arun-cods/CartShare" target="_blank" rel="noopener noreferrer" class="btn btn-dark" style="width: 100%; justify-content: center; font-size: 12px; padding: 8px 14px;">
+              Open Repository ↗
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 14px 18px; border-left: 3px solid var(--amber); border-radius: 0 12px 12px 0; background: rgba(245, 158, 11, 0.08); color: #cbd5e1; font-size: 13px;">
+        ℹ️ <strong>Security Notice:</strong> This unified operations terminal provides service shortcuts. User authentication, session keys, and database controls remain safely compartmentalized within each respective service.
+      </div>
+    </section>
+
     <!-- Public company information; personal contact and location details are omitted. -->
     <section id="company-info" class="public-profile">
       <h2 class="section-title">📄 About GTE</h2>
@@ -606,7 +681,7 @@
     <div class="container">
       <p>© <span id="year"></span> Gopagani Tech Enterprises (GTE). All rights reserved.</p>
       <p class="footer-founder">Founder &amp; Sole Owner: Gopagani Arun</p>
-      <a class="footer-terminal" href="portal.html">Owner Terminal ↗</a>
+      <a class="footer-terminal" href="#portal">Operations Terminal ↑</a>
     </div>
   </footer>
 
