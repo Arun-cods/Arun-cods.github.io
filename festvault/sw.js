@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v29-compact-clean-passcode';
+const CACHE_NAME = 'festvault-v30-splash-passcode-name';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
