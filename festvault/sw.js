@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v17-aperture-splash';
+const CACHE_NAME = 'festvault-v19-photo-unique';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
