@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v15-cursive-splash';
+const CACHE_NAME = 'festvault-v16-step-cursive';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
