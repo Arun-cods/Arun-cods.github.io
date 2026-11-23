@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v52-phonepe-security-qr-and-vpa-copy';
+const CACHE_NAME = 'festvault-v53-mobile-multi-upload-and-user-auth-fix';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
