@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v36-passcode-fields-otp-reset';
+const CACHE_NAME = 'festvault-v37-phone-input-otp-fix';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
