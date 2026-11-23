@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v55-rock-solid-crash-proof-and-touch-upload';
+const CACHE_NAME = 'festvault-v56-custom-inapp-delete-modal-and-bulletproof-upload';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
