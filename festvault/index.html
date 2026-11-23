@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z'/></svg>" />
+    <link rel="icon" type="image/png" href="./shield-emblem.png" />
+    <link rel="shortcut icon" href="./shield-emblem.png" />
     
     <!-- Mobile Fullscreen & Viewport Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
@@ -18,7 +19,7 @@
     
     <!-- Android PWA Manifest & App Icons -->
     <link rel="manifest" href="./manifest.json" />
-    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./shield-emblem.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png" />
 
@@ -43,14 +44,14 @@
     <meta property="og:title" content="FestVault - Private Celebration Photo Gallery" />
     <meta property="og:description" content="Cherished Celebration Memories. View and download high-resolution festival and family photos in original quality." />
     <meta property="og:site_name" content="FestVault" />
-    <meta property="og:image" content="https://arungopagani.is-a.dev/festvault/icon-512.png" />
+    <meta property="og:image" content="https://arungopagani.is-a.dev/festvault/shield-emblem.png" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="FestVault - Celebration Photo Gallery" />
     <meta name="twitter:description" content="View and download high-resolution celebration photos in original quality." />
-    <meta name="twitter:image" content="https://arungopagani.is-a.dev/festvault/icon-512.png" />
+    <meta name="twitter:image" content="https://arungopagani.is-a.dev/festvault/shield-emblem.png" />
 
     <!-- Structured Data for Google Search (Schema.org) -->
     <script type="application/ld+json">
@@ -69,14 +70,23 @@
     <meta http-equiv="Expires" content="0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>html,body{overscroll-behavior-y:contain;-webkit-tap-highlight-color:transparent;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);background-color:#020617}@keyframes fast-shimmer{0%{transform:translate(-100%)}to{transform:translate(100%)}}.grecaptcha-badge{display:none!important}</style>
-    <script type="module" crossorigin src="./assets/index-DkMJMAh_.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Rp7-477e.css">
+    <script type="module" crossorigin src="./assets/index-CFDIV_5S.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BlO0ssje.css">
   </head>
   <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-festive-500 selection:text-slate-950">
-    <div id="root"></div>
+    <div id="root">
+      <div id="initial-splash" style="position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 50%, #0f172a 0%, #020617 80%, #000000 100%);padding:24px;text-align:center;">
+        <div style="position:relative;width:clamp(230px, 64vw, 280px);height:clamp(230px, 64vw, 280px);margin-bottom:20px;display:flex;align-items:center;justify-content:center;">
+          <div style="position:absolute;inset:0;border-radius:9999px;background:radial-gradient(circle, rgba(245,158,11,0.35) 0%, rgba(236,72,153,0.25) 60%, transparent 100%);filter:blur(35px);"></div>
+          <img src="./shield-emblem.png" alt="FestVault" style="width:100%;height:100%;object-fit:contain;position:relative;z-index:10;filter:drop-shadow(0 12px 35px rgba(245,158,11,0.55));" />
+        </div>
+        <div style="min-height:96px;"></div>
+        <div style="min-height:20px;margin-top:8px;"></div>
+      </div>
+    </div>
 
 
     <!-- Register PWA Service Worker for Mobile & Play Store Instant OTA Updates -->
