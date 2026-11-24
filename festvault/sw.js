@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v71-cdn-cross-device-sync-ultra-hd';
+const CACHE_NAME = 'festvault-v72-no-locks-real-cloud-cdn';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
