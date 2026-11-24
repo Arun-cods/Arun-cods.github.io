@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v76-gopagani-photos-live-cdn';
+const CACHE_NAME = 'festvault-v77-privacy-and-fast-photos';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
