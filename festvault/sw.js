@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v73-purge-dead-blobs';
+const CACHE_NAME = 'festvault-v75-fix-bundled-photo-paths';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
