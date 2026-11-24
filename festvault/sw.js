@@ -1,5 +1,5 @@
 // FestVault Service Worker for Android Standalone App & Play Store Instant OTA Updates
-const CACHE_NAME = 'festvault-v67-turbo-parallel-4k';
+const CACHE_NAME = 'festvault-v69-turbo-1to2min-upload';
 const ASSETS_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
